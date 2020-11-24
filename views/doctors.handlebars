@@ -30,10 +30,10 @@
   </div>
     <input id="hospitalID" type="text" name="id">
   {{!-- <input id="search" type="submit" value="Search"> --}}
-  <button type="submit" class="btn btn-success" id="search" value="Search">Primary</button>
+  <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
 </form>
   {{!-- <h1  style="margin-left: 150px;">Doctor's Information</h1> --}}
-  <div class="h1class"><span>Doctor Availale to Book Appointment</span></div>
+  <div class="h1class"><span>Doctor Available to Book Appointment</span></div>
 <main>
 
   {{!-- <div style="margin-left: 150px;">  
@@ -86,7 +86,7 @@
             
           <div class="card doctorlist">
               <div class="listMain">
-                          <div class="doctor"><img src="public/images/docimage2.jpg" alt="doc1"></div>
+                          <div class="doctor"><img src="{{this.imageURL}}" alt="No Image"></div>
                           <div class="doctorDetails">
                               <div class="h2class">{{this.name}}</div>
                               <div class="h3class">{{this.experience}}</div>

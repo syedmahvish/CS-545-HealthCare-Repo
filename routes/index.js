@@ -23,7 +23,8 @@ const constructorMethod = (app) => {
 	var authenticationMiddleware = function (req, res, next) {
 		let user = req.session.user;
 		if(!user && (req.originalUrl.includes("/reservation") || req.originalUrl.includes("/doctors"))){
-			res.status(403).json({error: 'The user is not logged in'});
+			//alert("You are not logged in.");
+			res.status(200).redirect('/users/login');
 		
 		  }
 		  else{
@@ -82,7 +83,7 @@ const constructorMethod = (app) => {
 			console.log(err);
 		 }
 		 //res.render('reservation_new', { doctorList: doctorList, spList: specialismList.List });
-		 res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"Book new Appointment", hospital:hospital});
+		 res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"You are booking appointment for ", hospital:hospital});
 		
 	 } catch (e) {
 		 res.status(400).render('reservation_new');
@@ -99,7 +100,7 @@ const constructorMethod = (app) => {
 		let HospitalList = await hospitalData.getHospitalByDoc(xss(req.params.id));
 		let docsList = await doctorData.getDoctor(xss(req.params.id));
 		//res.render('reservation_new', { doctorList: doctorList, spList: specialismList.List });
-		res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"Book new Appointment"});
+		res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"You are booking appoitment for "});
 	   
 	} catch (e) {
 		res.status(400).render('reservation_new');
