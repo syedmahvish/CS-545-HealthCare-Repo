@@ -1,29 +1,31 @@
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 @font-face {
-    font-family: 'graduate';
-    src: url('/font/graduate.regular.ttf');
+  font-family: "graduate";
+  src: url("/font/graduate.regular.ttf");
 }
-body { 
-     margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-size: 2200px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-size: 2200px;
 }
 
 .header {
   overflow: hidden;
-  background-color: #BFEFFF;
+  background-color: #bfefff;
   padding: 20px 10px;
 }
 
 .header a {
   float: left;
- color: #296097;
+  color: #296097;
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 21px; 
+  font-size: 21px;
   font-family: graduate;
   line-height: 25px;
   border-radius: 4px;
@@ -35,16 +37,12 @@ body {
 }
 
 .header a:hover {
-  background-color: #B9D3EE;
+  background-color: #b9d3ee;
 }
-
 
 .header-right {
   float: right;
 }
-
-
-
 
 @media screen and (max-width: 500px) {
   .header a {
@@ -52,82 +50,111 @@ body {
     display: block;
     text-align: left;
   }
-  
+
   .header-right {
     float: none;
   }
 }
 
-.box{
-    width: 300px;
-    padding: 40px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #BFEFFF;
-    border: 2px solid #296097;
-    text-align: center;
+.box {
+  width: 50%;
+  padding: 40px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #bfefff;
+  border: 2px solid #296097;
+  text-align: center;
 }
 
-.box h1{
-    color: black;
-    text-transform: uppercase;
-    font-family: graduate;
-    font-size: 28px; 
+.box h1 {
+  color: rgb(40, 55, 121);
+  text-transform: uppercase;
+  font-family: graduate;
+  font-size: 28px;
 }
 
-a{
-    color: #296097;
-    font-size: 14px;
-    padding: 10px;
+.box p {
+  color: rgb(40, 55, 121);
 }
 
-a:hover{
-    color: #296097;
+.box label {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 17px;
+  color: rgb(40, 55, 121);
+  text-align: left;
 }
 
-.box input[type = "text"],.box input[type = "password"], .box input[type = "email"]{
-    background: none;
-    text-align: center;
-    border: 2px solid #525B56;
-    color: black;
-    background: white;
-    border-radius: 10px ;
-    width: 100%;
+.boxinput {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 17px;
+  color: rgb(40, 55, 121);
+  text-align: left;
+}
+
+a {
+  color: #296097;
+  font-size: 14px;
+  padding: 10px;
+}
+
+a:hover {
+  color: #296097;
+}
+
+.box input[type="text"],
+.box input[type="password"],
+.box input[type="email"] {
+  background: none;
+  text-align: center;
+  border: 2px solid #525b56;
+  color: black;
+  background: white;
+  border-radius: 10px;
+  width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
+  text-align: left;
 }
 
 .appointmentForm {
   margin: 5px 0 22px 0;
-
 }
 
-.box input[type = "text"]:focus,.box input[type = "password"]:focus, .box input[type = "email"]:focus{
-    border-color: #296097;
-    outline: none;
-
+.box input[type="text"]:focus,
+.box input[type="password"]:focus,
+.box input[type="email"]:focus {
+  border-color: #296097;
+  outline: none;
 }
 
-.box input[type = "submit"]{
-    border: 0;
-    background: #296097;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #296097;
-    padding: 14px 40px; 
-    color: white;
-    outline: none;
-    border-radius: 10px ;
-    transition: 0.30;
-    cursor: pointer;
+.box input[type="submit"] {
+  border: 0;
+  background: #296097;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #296097;
+  padding: 14px 40px;
+  color: white;
+  outline: none;
+  border-radius: 10px;
+  transition: 0.3;
+  cursor: pointer;
 }
 
-.box input[type = "submit"]:hover{
-    background: #296097;
+.box input[type="submit"]:hover {
+  background: #296097;
 }
 
 .error {
@@ -137,7 +164,7 @@ a:hover{
   position: absolute;
   top: 18%;
   left: 50%;
-  background:lightyellow;
+  background: lightyellow;
   transform: translate(-50%, -50%);
 }
 
@@ -148,7 +175,7 @@ a:hover{
   position: absolute;
   top: 18%;
   left: 50%;
-  background:lightyellow;
+  background: lightyellow;
   transform: translate(-50%, -50%);
 }
 
@@ -162,7 +189,7 @@ a:hover{
   position: fixed;
   transform: translate(-50%, -50%);
   color: red;
-  background:lightyellow;
+  background: lightyellow;
   font-weight: bold;
   font-size: 22px;
   line-height: 20px;
@@ -174,7 +201,12 @@ a:hover{
   color: black;
 }
 
-.w3-input{
-  padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:30%;right:50px;
+.w3-input {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 30%;
+  right: 50px;
   text-align: center;
 }

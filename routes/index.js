@@ -57,7 +57,8 @@ const constructorMethod = (app) => {
 			let hospitalList = await hospitalData.getAllHospitals();
 			let docsList = await doctorData.getAllDoctors();
 			let docSearchList = await doctorData.getAllDoctors();
-			res.render('doctors',{docsList:docsList, hospitalList: hospitalList, docSearchList:docSearchList});
+			// res.render('doctors',{docsList:docsList, hospitalList: hospitalList, docSearchList:docSearchList});
+			res.render('home',{user:req.session.user})	
 			}
 			catch(e) {
 				res.status(500).redirect('/');
