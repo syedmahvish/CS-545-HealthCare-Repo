@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Doctors</title>
+    <link rel="stylesheet" href="/public/stylesheets/formPage.css">
+    <link rel="stylesheet" href="/public/stylesheets/home.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+
+</head>
+<body onload="populateHospitalSearch('{{ json hospitalList}}', '{{ json docSearchList}}')">
+     {{#ifEquals user null}}
+    <div class="header">
+  <img src="/public/images/logo"  height="62" width="130" alt=" ">
+    <div class="header-right">
+    <a href="/users/signup">Signup</a>
+    <a href="/users/login">Log In</a>
+    </div>
+    </div>
+      {{/ifEquals}}
+    <form autocomplete="off" action="/search" id ="searchContainer">
+  <div class="autocomplete" style="width:300px;">
+    <label for="hospitalSearch"></label>  
+    <input id="hospitalSearch" type="text" name="hospital" class="form-control" placeholder="Search By Hospital/Doctor" value="{{searchValue}}">
+  </div>
+    <input id="hospitalID" type="text" name="id">
+  {{!-- <input id="search" type="submit" value="Search"> --}}
+  <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
+</form>
+  {{!-- <h1  style="margin-left: 150px;">Doctor's Information</h1> --}}
+  <div class="h1class"><span>Doctor Available to Book Appointment</span></div>
+<main>
+
+  {{!-- <div style="margin-left: 150px;">  
+    Welcome {{user.userName}} ! Below are list of doctors.
+
+
+  </div> --}}
+  <div class="container" style="padding:16px">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="h3Class modal-title" id="exampleModalLabel">Information</div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              {{!-- <label for="recipient-name" class="col-form-label">Info:</label>
+              <input type="text" class="form-control" id="recipient-name"> --}}
+              <label for="data" type="text" class="col-form-label" ></label>
+              <br/>
+              <br/>
+              <input type="text" id="education" readonly />
+              <input type="text" id="experience" readonly />
+              {{!-- <input type="text" id="phoneNo" readonly /> --}}
+              <input type="text" id="gender" readonly />
+              <input type="text" id="specialization" readonly />
+              <br/>
+              <br/>
+              <textarea type="text" name="Text1" id="description"></textarea>
+              {{!-- <input type="text" id="specialisation" readonly /> --}}
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ {{#if docsList}}
+   {{#each docsList}}
+  <form id ="docsForm" action="/reservation/new/{{this._id}}/{{../hospital}}" method="GET">
+  <ul>
+      <li class="doctorli">
+            
+          <div class="card doctorlist">
+              <div class="listMain">
+                          <div class="doctor"><img src="{{this.imageURL}}" alt="No Image"></div>
+                          <div class="doctorDetails">
+                              <div class="h2class">{{this.name}}</div>
+                              <div class="h3class">{{this.experience}}</div>
+                              <div class="h3class">{{this.education}}</div>
+                              <div class="h3class">{{this.specialization}}</div>
+                               <div class="h3class">Medical Registration Verified: {{this.medical_registration_verified}}</div>
+                                 <button type="button" class="btn btn-link btnColor" data-toggle="modal" data-target="#exampleModal" data-description="Doctor Description: {{this.description}}" data-gender="Gender: {{this.gender}}" data-education="Education: {{this.education}}" data-name="Name: {{this.name}}" data-specialization="Specialization: {{this.specialization}}"  
+                                data-experience="Experience: {{this.experience}}"
+                                data-phoneNo="Contact Number: {{this.phoneNumber}}">View Profile</button>
+                          </div>
+                          <div class="doctorContact"> 
+                            <button type="submit" id="btnSubmit" class="button submit" onclick="reservation_new">Book Appointment</button>
+                            <button type="submit" title="{{this.phoneNumber}}" id="btnSubmit" class="button submit">Contact Doctor</button>
+                             {{!-- <input style="width: 200px" type="submit" value="Book Appointment" onclick="reservation_new"></td> --}}
+                            </div>
+              </div>
+          </div>            
+      </li>      
+    </ul>
+    </form>
+     {{/each}}
+    {{else}}
+    </div> 
+   
+    <div style="margin-left: 350px;">Data Not Available. Please try some other doctor or hospital</div>
+   {{/if}}
+  </main>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+      crossorigin="anonymous"></script>
+      <script src='/public/scripts/script_search.js'></script>
+         <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  <script>
+  $(document).ready(function(){
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+
+  var experience = button.data('experience') // Extract info from data-* attributes
+  var description = button.data('description');
+  var name = button.data('name');
+  var gender = button.data('gender');
+  var specialization = button.data('specialization');
+  var education = button.data('education');
+  var phoneNumber = button.data('phoneNo');
+  {{!-- alert(phoneNumber); --}}
+
+  var modal = $(this)
+  modal.find('.modal-title').text("Doctor's Detail");
+  {{!-- modal.find('.modal-body input').val(recipient) --}}
+  modal.find('.modal-body label').html(name);
+  modal.find('#education').val(education);
+  modal.find('#description').val(description);
+  modal.find('#gender').val(gender);
+  modal.find('#specialization').val(specialization);
+  modal.find('#experience').val(experience);
+  {{!-- modal.find('#phoneNo').val(phoneNumber); --}}
+})
+});
+</script>
+
+
+</body>
+</html> 
