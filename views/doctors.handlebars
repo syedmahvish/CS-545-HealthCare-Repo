@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
-
 </head>
 <body onload="populateHospitalSearch('{{ json hospitalList}}', '{{ json docSearchList}}')">
      {{#ifEquals user null}}
@@ -78,6 +77,9 @@
       </div>
     </div>
   </div>
+
+</div>
+
  {{#if docsList}}
    {{#each docsList}}
   <form id ="docsForm" action="/reservation/new/{{this._id}}/{{../hospital}}" method="GET">
@@ -99,7 +101,9 @@
                           </div>
                           <div class="doctorContact"> 
                             <button type="submit" id="btnSubmit" class="button submit" onclick="reservation_new">Book Appointment</button>
-                            <button type="submit" title="{{this.phoneNumber}}" id="btnSubmit" class="button submit">Contact Doctor</button>
+
+                            
+                            <button type="button" style="height: 50px;" class="button submit Disabled" title="{{this.phoneNumber}}">Contact: {{this.phoneNumber}}</button>
                              {{!-- <input style="width: 200px" type="submit" value="Book Appointment" onclick="reservation_new"></td> --}}
                             </div>
               </div>
@@ -150,7 +154,6 @@
 })
 });
 </script>
-
 
 </body>
 </html> 
