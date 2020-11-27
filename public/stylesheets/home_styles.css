@@ -145,6 +145,11 @@
   letter-spacing: 0;
 }
 
+.hlp-center-content a {
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
 .help-feature-lists {
   margin-top: 32px;
 }

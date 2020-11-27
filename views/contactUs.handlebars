@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../public/stylesheets/default-css.css">
+    <link rel="stylesheet" href="../public/stylesheets/home_styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    {{#ifEquals user null}}
+    <div class="header">
+        <a href="/" class="logo"><img src="/public/images/logo" height="62" width="130"></a>
+        <div class="header-right">
+            <a href="/users/signup">Signup</a>
+            <a href="/users/login">Log In</a>
+        </div>
+    </div>
+    {{else}}
+
+    {{/ifEquals}}
+    <!-- help center area start -->
+    <div class="help-center-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hlp-center-thumb">
+                        <img src="../public/home_images/feature-thumb.jpg" alt="feature-thumb">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hlp-center-content">
+                        <h4>What can we do for you</h4>
+                        <p>We provide the most full medical services, so every person could have the
+                            opportunity
+                            to
+                            receive qualitative medical help.</p>
+                        <ul class="help-feature-lists">
+                            <li>
+                                <div class="icon">
+                                    <img src="../public/home_images/feature-icon2.png" alt="feature-icon">
+                                </div>
+                                <div class="content">
+                                    <h4>Brief doctor's information</h4>
+                                    <p>Benefits of an Online Doctor Appointment System: People can
+                                        get
+                                        information
+                                        of
+                                        doctors.<br />
+                                        <a href="/doctors">Find all doctor's information in brief</a>
+                                        <br />
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <img src="../public/home_images/feature-icon3.png" alt="feature-icon">
+                                </div>
+                                <div class="content">
+                                    <h4>Quick Doctor's search</h4>
+                                    <p>With access to 24 hour assistance, It’s so
+                                        important you
+                                        can
+                                        continue
+                                        to help. <br />
+                                        <a href="/doctors">
+                                            Search doctor by name, hospital's name or speciality</a> <br />
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <img src="../public/home_images/feature-icon3.png" alt="feature-icon">
+                                </div>
+                                <div class="content">
+                                    <h4>Easy Appointment Booking</h4>
+                                    <p>Hassle free book Appointment with doctor. <br />
+                                        Please note : You must login to system to book appointment <br />
+                                        <a href="/doctors">
+                                            Select doctor/hospital and book appointment</a> <br />
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <img src="../public/home_images/feature-icon1.png" alt="feature-icon">
+                                </div>
+                                <div class="content">
+                                    <h4>Support Service for COVID-19</h4>
+                                    <p>Get latest information and remian update about COVID-19.
+                                        Call (General COVID-19 Questions): 2-1-1 (24/7) <br />
+                                        Call (Medical COVID-19 Questions): 1-800-962-1253 (24/7)<br />
+                                        Text NJCOVID to 898-211 to receive alerts<br />
+                                        Get More information here:<br />
+                                        <a
+                                            href="https://covid19.nj.gov/pages/app?gclid=Cj0KCQiAhZT9BRDmARIsAN2E-J2WJGP091b3uQHEKmi9uiYbJJTKQDGRp-_XF6GbRmy9e7Xa-e2yTDcaAibjEALw_wcB">Visit
+                                            NewJersey coronavirus resource center.</a>
+                                    </p>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- help center area end -->
+</body>
+
+</html>

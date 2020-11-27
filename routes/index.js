@@ -303,6 +303,10 @@ const constructorMethod = (app) => {
 		 res.render('doctors', {docsList:docList,user:req.session.user, hospitalList: hospitalList, docSearchList:docSearchList, specialityValue:value});		
 	}) 
 
+	app.get("/contact", async(req,res) => {
+		res.render("contactUs", {user : req.session.user})
+	})
+
 	app.use(logInMiddleware)
 	app.use('/users', users);
 
