@@ -152,18 +152,16 @@
         var specialization = button.data('specialization');
         var education = button.data('education');
         var phoneNumber = button.data('phoneNo');
-        { { !--alert(phoneNumber); --} }
 
         var modal = $(this)
         modal.find('.modal-title').text("Doctor's Detail");
-        { { !--modal.find('.modal-body input').val(recipient) --} }
         modal.find('.modal-body label').html(name);
         modal.find('#education').val(education);
         modal.find('#description').val(description);
         modal.find('#gender').val(gender);
         modal.find('#specialization').val(specialization);
         modal.find('#experience').val(experience);
-        { { !--modal.find('#phoneNo').val(phoneNumber); --} }
+
       })
     });
   </script>
