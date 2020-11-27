@@ -283,6 +283,26 @@ const constructorMethod = (app) => {
 		 res.render('doctors',{docsList:docsList,user:user, hospitalList: hospitalList, docSearchList:docSearchList, searchValue:searchValue, hospital:hospitalID});
  
 	 });
+
+	app.get("/doctors/speciality/:specialityname" , async (req, res) => {
+		if(!req.params || !req.params.specialityname){
+			res.status(400).json({error: 'You must provide speciality of doctor'});
+			return
+		}
+        let hospitalList = await hospitalData.getAllHospitals();
+		let docSearchList = await doctorData.getAllDoctors();
+
+		let docList
+		let value = null
+		if(req.params.specialityname === "all"){
+			docList = await doctorData.getAllDoctors();
+		}else{
+			docList = await doctorData.getDoctorBySpeciality(req.params.specialityname);
+			value = docList[0].specialization;
+		}
+		 res.render('doctors', {docsList:docList,user:req.session.user, hospitalList: hospitalList, docSearchList:docSearchList, specialityValue:value});		
+	}) 
+
 	app.use(logInMiddleware)
 	app.use('/users', users);
 
@@ -291,5 +311,7 @@ const constructorMethod = (app) => {
 	  });
 	//app.use('/reservation_new', reservationData);
 };
+
+
 
 module.exports = constructorMethod;

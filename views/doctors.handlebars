@@ -36,15 +36,38 @@
     {{!-- <input id="search" type="submit" value="Search"> --}}
     <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
   </form>
-  {{!-- <h1  style="margin-left: 150px;">Doctor's Information</h1> --}}
+
+
   <div class="h1class"><span>Doctor Available to Book Appointment</span></div>
   <main>
 
-    {{!-- <div style="margin-left: 150px;">  
-    Welcome {{user.userName}} ! Below are list of doctors.
+    <div class="btn-group" id="myDropdown">
+      <button id="dropDownButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        {{#ifEquals specialityValue null}}
+        Select Specility
+        {{else}}
+        {{specialityValue}}
+        {{/ifEquals}}
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/doctors/speciality/Gynaecologist">Gynaecologist</a>
+        <a class="dropdown-item" href="/doctors/speciality/Sexologist">Sexologist</a>
+        <a class="dropdown-item" href="/doctors/speciality/General Physician">General Physician</a>
+        <a class="dropdown-item" href="/doctors/speciality/Neurologist">Neurologist</a>
+        <a class="dropdown-item" href="/doctors/speciality/Psychiatry">Psychiatry</a>
+        <a class="dropdown-item" href="/doctors/speciality/ENT">Ear, Nose, Throat</a>
+        <a class="dropdown-item" href="/doctors/speciality/Eye and Vision">Eye and Vision</a>
+        <a class="dropdown-item" href="/doctors/speciality/Dermatologist">Dermatologist</a>
+        <a class="dropdown-item" href="/doctors/speciality/Dentist">Dental</a>
+        <a class="dropdown-item" href="/doctors/speciality/Cardiologist">Cardiologist</a>
+        <a class="dropdown-item" href="/doctors/speciality/Pediatrics">Pediatrics</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/doctors/speciality/all">other</a>
+      </div>
+    </div>
 
-
-  </div> --}}
+    </div>
     <div class="container" style="padding:16px">
 
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -163,7 +186,15 @@
         modal.find('#experience').val(experience);
 
       })
+
+      $(".dropdown-menu a").click(function () {
+        $("#dropDownButton:first-child").text($(this).text());
+        $("#dropDownButton:first-child").val($(this).text());
+      });
+
+
     });
+
   </script>
 
 </body>
