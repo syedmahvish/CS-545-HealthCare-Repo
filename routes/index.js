@@ -22,18 +22,17 @@ const constructorMethod = (app) => {
 	  }
 	var authenticationMiddleware = function (req, res, next) {
 		let user = req.session.user;
-		if(!user && (req.originalUrl.includes("/reservation") || req.originalUrl.includes("/doctors"))){
+		if(!user && (req.originalUrl.includes("/reservation"))){// || req.originalUrl.includes("/doctors"))){
 			//alert("You are not logged in.");
-			res.status(200).redirect('/users/login');
-		
+			res.status(200).redirect('/users/login');		
 		  }
-		  else{
-	
+		  else{	
 			next();
 		  }
 		
 	  }
 	  var logInMiddleware = function (req, res, next) {
+		// res.status(200).redirect('/doctors');  
 		let user = req.session.user;
 		if(!user){
 			next();
