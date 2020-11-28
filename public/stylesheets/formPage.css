@@ -257,3 +257,8 @@ input[type=submit]:hover {
     margin-top: 0;
   }
 }
+
+.cardClass{
+  /* background-color: #e8f4f8; */
+  background-color:#B0E0E6;
+}

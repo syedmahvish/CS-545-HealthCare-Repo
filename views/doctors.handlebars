@@ -13,6 +13,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 
 <body onload="populateHospitalSearch('{{ json hospitalList}}', '{{ json docSearchList}}')">
@@ -26,6 +29,8 @@
     </div>
   </div>
   {{/ifEquals}}
+  <div>
+  <div class='searchClass'>
   <form autocomplete="off" action="/search" id="searchContainer">
     <div class="autocomplete" style="width:300px;">
       <label for="hospitalSearch"></label>
@@ -34,41 +39,45 @@
     </div>
     <input id="hospitalID" type="text" name="id">
 
- 
+
   <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
-</form>
-  
+  </form>
+</div>
+<div class="pecialityClass">
+ 
+  <div class="btn-group" id="myDropdown">
+    <button id="dropDownButton" type="button" class="btn btn-primary dropdown-toggle buttonclass" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      {{#ifEquals specialityValue null}}
+      Select Specility
+      {{else}}
+      {{specialityValue}}
+      {{/ifEquals}}
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/doctors/speciality/Gynaecologist">Gynaecologist</a>
+      <a class="dropdown-item" href="/doctors/speciality/Sexologist">Sexologist</a>
+      <a class="dropdown-item" href="/doctors/speciality/General Physician">General Physician</a>
+      <a class="dropdown-item" href="/doctors/speciality/Neurologist">Neurologist</a>
+      <a class="dropdown-item" href="/doctors/speciality/Psychiatry">Psychiatry</a>
+      <a class="dropdown-item" href="/doctors/speciality/ENT">Ear, Nose, Throat</a>
+      <a class="dropdown-item" href="/doctors/speciality/Eye and Vision">Eye and Vision</a>
+      <a class="dropdown-item" href="/doctors/speciality/Dermatologist">Dermatologist</a>
+      <a class="dropdown-item" href="/doctors/speciality/Dentist">Dental</a>
+      <a class="dropdown-item" href="/doctors/speciality/Cardiologist">Cardiologist</a>
+      <a class="dropdown-item" href="/doctors/speciality/Pediatrics">Pediatrics</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/doctors/speciality/all">other</a>
+    </div>
+  </div>
+  </div>
+<div class='headerClass'>
   <div class="h1class"><span>Welcome to City HealthCare</span></div>
-<main>
+</div>
 
+  </div>
 
-    <div class="btn-group" id="myDropdown">
-      <button id="dropDownButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        {{#ifEquals specialityValue null}}
-        Select Specility
-        {{else}}
-        {{specialityValue}}
-        {{/ifEquals}}
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="/doctors/speciality/Gynaecologist">Gynaecologist</a>
-        <a class="dropdown-item" href="/doctors/speciality/Sexologist">Sexologist</a>
-        <a class="dropdown-item" href="/doctors/speciality/General Physician">General Physician</a>
-        <a class="dropdown-item" href="/doctors/speciality/Neurologist">Neurologist</a>
-        <a class="dropdown-item" href="/doctors/speciality/Psychiatry">Psychiatry</a>
-        <a class="dropdown-item" href="/doctors/speciality/ENT">Ear, Nose, Throat</a>
-        <a class="dropdown-item" href="/doctors/speciality/Eye and Vision">Eye and Vision</a>
-        <a class="dropdown-item" href="/doctors/speciality/Dermatologist">Dermatologist</a>
-        <a class="dropdown-item" href="/doctors/speciality/Dentist">Dental</a>
-        <a class="dropdown-item" href="/doctors/speciality/Cardiologist">Cardiologist</a>
-        <a class="dropdown-item" href="/doctors/speciality/Pediatrics">Pediatrics</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/doctors/speciality/all">other</a>
-      </div>
-    </div>
-
-    </div>
+  <main>
     <div class="container" style="padding:16px">
 
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -84,19 +93,19 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                 
+
                   <label for="data" type="text" class="col-form-label"></label>
                   <br />
                   <br />
                   <input type="text" id="education" readonly />
                   <input type="text" id="experience" readonly />
-                 
+
                   <input type="text" id="gender" readonly />
                   <input type="text" id="specialization" readonly />
                   <br />
                   <br />
                   <textarea type="text" name="Text1" id="description"></textarea>
-                 
+
                 </div>
               </form>
             </div>
