@@ -132,7 +132,8 @@ a:hover{
 
 .error {
   width: 200px;
-  padding: 25px;
+  padding: 20px;
+  z-index: 5;
   color: red;
   position: absolute;
   top: 10%;
@@ -157,9 +158,12 @@ a:hover{
 }
 
 .closebtn {
-  top: 6%;
+
+  top: 10%;
+  z-index: 5;
+
   left: 56.6%;
-  position: fixed;
+  position: absolute;
   transform: translate(-50%, -50%);
   color: red;
   background:lightyellow;

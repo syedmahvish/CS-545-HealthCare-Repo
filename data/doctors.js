@@ -24,6 +24,16 @@ module.exports = {
     return doc;
 
 },
+async getDoctorBySpeciality(speciality) {
+  if (!speciality) throw 'You must provide an speciality to search for';
+  if(typeof speciality !== 'string') throw 'specilaity must be a string';
+ 
+  const docCollection = await doctors();
+  const doc = await docCollection.find({ specialization : speciality }).toArray();
+  if (doc === null) throw `No doctor with that specilaity : ${speciality}.`;
+
+  return doc;
+},
 
     async addDoctors(doctorData) {
 

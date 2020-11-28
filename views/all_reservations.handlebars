@@ -2,23 +2,6 @@
 
   <br/> 
 
-  {{!-- <div class="content">
-    <div class="container">
-          <div class="row">
-              {{#each reservationList}}
-              <div id="card" class="card col-lg-3 col-md-4 col-sm-12">
-                
-                <div class="card-body">
-                    <h2 class="card-title">Booked</h2>
-                    <p class="card-text">Inception is a 2010 science fiction action film.</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">Show Details</button>
-                </div>  
-            </div>
-              {{/each}}
-</div>
-</div>
-</div> --}}
-
      {{#each reservationList}} 
   <a href="/reservation/get/{{this._id}}" class="card_link">
     <div class="container">
@@ -46,16 +29,13 @@
         <td>Status:</td>
         <td style="color:rgb(30, 196, 30)"> {{this.status}}</td>
       </tr>
-      
     </table>
-    
     </div>
     </div>
     </div>
   </div>
   </a>
   {{/each}}
-
   {{#unless reservationList}}
     <div class="card">
       <p>No records found</p>
