@@ -38,6 +38,7 @@ function cancelReserv(reservation){
     let hidden = false;
     //addNotesSubmit enable
       const text = document.getElementById("textAreaNote");
+      console.log("textAreaNote:"+textAreaNote)
       text.value="";
       const button = document.getElementById('addNotesSubmit');
       //ydocument.getElementById("addNoteButton").disabled = true;
@@ -58,18 +59,32 @@ function cancelReserv(reservation){
         //location.href = '/reservation/notes/'+reservation;
 }
 
+//display times based on hospital
+/* function getTimes(){
+  var x = document.getElementById("mySelect").value;
+  document.getElementById("demo").innerHTML = "You selected: " + x;
+
+} */
+
 function updateNotes(appointment) {
+
+  
+  document.getElementById('addNotesSubmit').style.display="none";
     
     let notelabel = document.getElementById("notesID");
     let textfield = document.getElementById("textAreaNote");
+
     let notes = textfield.value;
     textfield.style.display = "none";
     notelabel.style.display = "block";
     
     if($("#textAreaNote").val().trim().length < 1)
         {
-            alert("Please enter notes for the Appointments.");
+            
             document.getElementById('addNotesSubmit').style.display='none';
+            document.getElementById("textAreaNote").style.display="block";
+            document.getElementById('addNotesSubmit').style.display="block";
+            alert("Please enter notes for the Appointments.");
             return; 
         }
     $.ajax({
@@ -82,10 +97,10 @@ function updateNotes(appointment) {
         
         let ptag = document.getElementById('addedNotes');
         ptag.style.display = "block";
-        document.getElementById("addedNotes").innerHTML = res.notes;
+        document.getElementById("addedNotes").innerHTML = res.notes ;
         document.getElementById("h1").innerHTML = "Your notes has been added.";
         //invisible update note button
-        document.getElementById('addNotesSubmit').style.display='none';
+      //document.getElementById('addNotesSubmit').style.display="none";
          
         //alert(out);
       },

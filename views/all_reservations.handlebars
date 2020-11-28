@@ -2,21 +2,34 @@
 
   <br/> 
 
-  <div class="container" style="padding:16px">
-    <h1 style="margin-left:138px;">{{title}}</h1>
-  </div>
+  {{!-- <div class="content">
+    <div class="container">
+          <div class="row">
+              {{#each reservationList}}
+              <div id="card" class="card col-lg-3 col-md-4 col-sm-12">
+                
+                <div class="card-body">
+                    <h2 class="card-title">Booked</h2>
+                    <p class="card-text">Inception is a 2010 science fiction action film.</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">Show Details</button>
+                </div>  
+            </div>
+              {{/each}}
+</div>
+</div>
+</div> --}}
 
-
-  {{#each reservationList}}
+     {{#each reservationList}} 
   <a href="/reservation/get/{{this._id}}" class="card_link">
-  <div class="card">
-    <div class="container" style="padding:16px">
-    
+    <div class="container">
+     
+      <div class="row">
+        
+      <div class="card col-lg-3 col-md-4 col-sm-12">
+        <div class="card-header"><strong>Booking ID:  #{{this._id}}</strong></div>
+    <div class="card-body">
     <table style="color:darkslategray">
-      <tr>
-        <td style="width: 30%"><b>Booking ID:</b></td>
-        <td><b>#{{this._id}}</b></td>
-      </tr>
+     
       <tr>
         <td>Doctor:</td>
         <td>{{this.doctor.name}}</td>
@@ -31,11 +44,13 @@
       </tr>
       <tr>
         <td>Status:</td>
-        <td style="background-color:lightgreen"> {{this.status}}</td>
+        <td style="color:rgb(30, 196, 30)"> {{this.status}}</td>
       </tr>
       
     </table>
     
+    </div>
+    </div>
     </div>
   </div>
   </a>
@@ -46,5 +61,5 @@
       <p>No records found</p>
     </div>
   {{/unless}}
-
+ 
 </main>

@@ -64,6 +64,8 @@ const constructorMethod = (app) => {
 			}
 	});
 	 app.use(authenticationMiddleware)
+
+
 	 //new appointment with prefilled doctors, user details, dropdown for hopitals
 	 app.get('/reservation/new/:id/:hospital', async(req, res) => {
 		 let user = req.session.user;
@@ -89,6 +91,8 @@ const constructorMethod = (app) => {
 		 res.status(400).render('reservation_new');
 	   }
 	 });
+
+
 	 app.get('/reservation/new/:id', async(req, res) => {
 		let user = req.session.user;
 
@@ -100,7 +104,7 @@ const constructorMethod = (app) => {
 		let HospitalList = await hospitalData.getHospitalByDoc(xss(req.params.id));
 		let docsList = await doctorData.getDoctor(xss(req.params.id));
 		//res.render('reservation_new', { doctorList: doctorList, spList: specialismList.List });
-		res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"You are booking appoitment for "});
+		res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"You are booking appointment for "});
 	   
 	} catch (e) {
 		res.status(400).render('reservation_new');
@@ -111,17 +115,18 @@ const constructorMethod = (app) => {
 	 app.post('/reservation/new/:id', async (req, res) => {
 		 let user = req.session.user;
 		 let userid = user._id;
-		 if(!req.params.id || !req.body.hospitals || !req.body.app_date){
+
+		 if(!req.params.id || !req.body.hospital || !req.body.resvDate){
 			res.status(400).json({error: 'Data is missing or not provided.'});
 			return;
 		 }
-		 if(req.params.id ===undefined || req.body.hospitals===undefined || req.body.app_date===undefined){
+		 if(req.params.id ===undefined || req.body.hospital===undefined || req.body.resvDate===undefined){
 			res.status(400).json({error: 'Data is missing or not provided.'});
 			return;
 		 }
 		 let docid = xss(req.params.id);
-		 let hospid = xss(req.body.hospitals);
-		 let resvDate = xss(req.body.app_date);
+		 let hospid = xss(req.body.hospital);
+		 let resvDate = xss(req.body.resvDate);
 		 
 		 try {
 			 const reservation = await reservationData.makereservation(userid, docid, resvDate, hospid);
