@@ -29,6 +29,8 @@
     </div>
   </div>
   {{/ifEquals}}
+  <div>
+  <div class='searchClass'>
   <form autocomplete="off" action="/search" id="searchContainer">
     <div class="autocomplete" style="width:300px;">
       <label for="hospitalSearch"></label>
@@ -38,15 +40,13 @@
     <input id="hospitalID" type="text" name="id">
 
 
-    <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
+  <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
   </form>
-
-  <div class="h1class"><span>Welcome to City HealthCare</span></div>
-
-
-
+</div>
+<div class="pecialityClass">
+ 
   <div class="btn-group" id="myDropdown">
-    <button id="dropDownButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+    <button id="dropDownButton" type="button" class="btn btn-primary dropdown-toggle buttonclass" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
       {{#ifEquals specialityValue null}}
       Select Specility
@@ -69,6 +69,12 @@
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="/doctors/speciality/all">other</a>
     </div>
+  </div>
+  </div>
+<div class='headerClass'>
+  <div class="h1class"><span>Welcome to City HealthCare</span></div>
+</div>
+
   </div>
 
   <main>

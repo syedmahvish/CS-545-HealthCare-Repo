@@ -1,16 +1,13 @@
 <main>
 
   <br/> 
-
-     {{#each reservationList}} 
-  <a href="/reservation/get/{{this._id}}" class="card_link">
-    <div class="container">
-     
-      <div class="row">
-        
-      <div class="card col-lg-3 col-md-4 col-sm-12">
-        <div class="card-header"><strong>Booking ID:  #{{this._id}}</strong></div>
-    <div class="card-body">
+ <div class="container-fluid mb-4">
+   
+  <div class="row row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
+    {{#each reservationList}}     
+      <div class="card">
+         <div class="card-header text-white" style="background-color: rgb(36, 162, 208);"><strong>Booking ID:  #{{this._id}}</strong></div>
+         <div class="card-body">
     <table style="color:darkslategray">
      
       <tr>
@@ -27,19 +24,13 @@
       </tr>
       <tr>
         <td>Status:</td>
-        <td style="color:rgb(30, 196, 30)"> {{this.status}}</td>
+        <td style="color:rgb(30, 196, 30); font:bold;"> {{this.status}}</td>
       </tr>
     </table>
     </div>
-    </div>
-    </div>
+      </div>
+
+    {{/each}}
   </div>
-  </a>
-  {{/each}}
-  {{#unless reservationList}}
-    <div class="card">
-      <p>No records found</p>
-    </div>
-  {{/unless}}
- 
+</div>
 </main>

@@ -207,3 +207,27 @@ ul{
 .modal-body .col-form-label{
   font-weight: bold;
 }
+
+.headerClass{
+  width: 50%;
+  float: center;
+}
+.pecialityClass{
+  width: 24%;
+  display:inline;
+  text-align: center;
+  float:right;
+  margin-top: 2%;;
+}
+.searchClass{
+  width: 26%;
+  display:inline;
+  text-align: center;
+  float: right;
+
+}
+.buttonclass{
+  width: 170px;
+  height: 40px;
+
+}

@@ -25,7 +25,7 @@
       <div class="card-header text-white bg-success mb-3"><strong>Status: {{appointment.status}}</strong></div>
                
   
-        <div class="card-body">
+        <div class="card-body cardClass">
           <table>
                   <tr class="d-flex">
                       <td style="font-weight:bold;color: #191970;">Patient Name:  </td>
@@ -79,8 +79,8 @@
     <div class="card bg-light mx-auto" id="editForm" style="display: none">
   
     <form action="/reservation/edit/{{appointment._id}}" method="POST">
-      <div class="card-header"><strong>You are editing your appointment date</strong></div>
-        <div class="card-body">
+      <div style="background-color: rgb(36, 162, 208);"class="card-header text-white"><strong>You are editing your appointment date</strong></div>
+        <div class="card-body cardClass">
           <table>
      
           <tr>
