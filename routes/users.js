@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
       );
       req.session.user = result;
       res.cookie('AuthCookie');
-      var hour = 900000 //15 minutes
+      var hour = 18000000 //15 minutes
       req.session.cookie.expires = new Date(Date.now() + hour)
       req.session.cookie.maxAge = hour
       res.redirect('users/userDetails');
@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
       const result = await usersData.checkLogin( xss(usersResponse['email']), xss(usersResponse['password']));
       req.session.user = result;//users data stored in session
       res.cookie('AuthCookie');
-      var hour = 900000 //15 minutes
+      var hour = 18000000 //15 minutes
       req.session.cookie.expires = new Date(Date.now() + hour)
       req.session.cookie.maxAge = hour
       const userDetails = await usersData.getUser(result._id);

@@ -33,13 +33,14 @@
         placeholder="Search By Hospital/Doctor" value="{{searchValue}}">
     </div>
     <input id="hospitalID" type="text" name="id">
-    {{!-- <input id="search" type="submit" value="Search"> --}}
-    <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
-  </form>
 
+ 
+  <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
+</form>
+  
+  <div class="h1class"><span>Welcome to City HealthCare</span></div>
+<main>
 
-  <div class="h1class"><span>Doctor Available to Book Appointment</span></div>
-  <main>
 
     <div class="btn-group" id="myDropdown">
       <button id="dropDownButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
@@ -83,20 +84,19 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  {{!-- <label for="recipient-name" class="col-form-label">Info:</label>
-              <input type="text" class="form-control" id="recipient-name"> --}}
+                 
                   <label for="data" type="text" class="col-form-label"></label>
                   <br />
                   <br />
                   <input type="text" id="education" readonly />
                   <input type="text" id="experience" readonly />
-                  {{!-- <input type="text" id="phoneNo" readonly /> --}}
+                 
                   <input type="text" id="gender" readonly />
                   <input type="text" id="specialization" readonly />
                   <br />
                   <br />
                   <textarea type="text" name="Text1" id="description"></textarea>
-                  {{!-- <input type="text" id="specialisation" readonly /> --}}
+                 
                 </div>
               </form>
             </div>
