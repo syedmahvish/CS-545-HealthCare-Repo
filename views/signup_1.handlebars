@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.lr-ingest.io/logger.min.js" async=""></script>
+    <style data-emotion="css"></style>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+<body background="/public/images/background_image.jpg">
+
+    {{!-- background="/public/images/background_image.jpg" --}}
+    <form class="box" id="signupForm" action="/users" method="POST">
+
+        <h1>Create profile.</h1>
+        <p class="subtext">If you are booking for someone else, please have that person create an account.
+        </p>
+
+        <div>
+            <label for="username">Name</label>
+            <input class="input" id="username" type="text" name="username" autocomplete="on"
+                placeholder="FirstName LastName" aria-label="Name" value="">
+        </div>
+
+        <div>
+            <label for="dob">Date of Birth</label>
+            <input id="dob" class="input" type="text" name="dob" autocomplete="on" placeholder="MM / DD / YYYY"
+                aria-label="Date of Birth" value="">
+        </div>
+
+        <div>
+            <label for="mobile">Mobile</label>
+            <input id="mobile" class="input" type="text" name="phone" autocomplete="on" placeholder="XXX-XXX-XXXX"
+                pattern="[0-9]*" formnovalidate="" aria-label="Mobile" value="">
+        </div>
+
+        <label for="email">Email</label>
+        <input class="input" id="email" type="email" name="email" placeholder="xyz@abc.com">
+
+        <label for="password">Password</label>
+        <input class="input" id="password" type="password" name="password" placeholder="******">
+
+        <label for="repassword">Re-enter</label>
+        <input class="input" id="repassword" type="password" name="repassword" placeholder="******">
+
+
+        <label for="submit"></label>
+        <input class="input" type="submit" value="Create Account" placeholder="Sign Up">
+        <a href="/users/login">Already have one?</a>
+
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='/public/scripts/script_signup.js'></script>
+</body>
+
+</html>
