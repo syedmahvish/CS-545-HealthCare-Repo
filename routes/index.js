@@ -22,8 +22,7 @@ const constructorMethod = (app) => {
 	  }
 	var authenticationMiddleware = function (req, res, next) {
 		let user = req.session.user;
-		if(!user && (req.originalUrl.includes("/reservation"))){// || req.originalUrl.includes("/doctors"))){
-			//alert("You are not logged in.");
+		if(!user && (req.originalUrl.includes("/reservation"))){
 			res.status(200).redirect('/users/login');		
 		  }
 		  else{	
@@ -53,10 +52,6 @@ const constructorMethod = (app) => {
 	  })
 	  app.get('/', async(req, res) => {
 		try{
-			let hospitalList = await hospitalData.getAllHospitals();
-			let docsList = await doctorData.getAllDoctors();
-			let docSearchList = await doctorData.getAllDoctors();
-			// res.render('doctors',{docsList:docsList, hospitalList: hospitalList, docSearchList:docSearchList});
 			res.render('home',{user:req.session.user})	
 			}
 			catch(e) {
@@ -84,7 +79,7 @@ const constructorMethod = (app) => {
 		 catch(err){
 			console.log(err);
 		 }
-		 //res.render('reservation_new', { doctorList: doctorList, spList: specialismList.List });
+		 
 		 res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"You are booking appointment for ", hospital:hospital});
 		
 	 } catch (e) {
@@ -103,7 +98,7 @@ const constructorMethod = (app) => {
 		try{
 		let HospitalList = await hospitalData.getHospitalByDoc(xss(req.params.id));
 		let docsList = await doctorData.getDoctor(xss(req.params.id));
-		//res.render('reservation_new', { doctorList: doctorList, spList: specialismList.List });
+		
 		res.render('reservation_new',{user:user,HospitalList:HospitalList,docsList:docsList,title:"You are booking appointment for "});
 	   
 	} catch (e) {
@@ -111,7 +106,7 @@ const constructorMethod = (app) => {
 	  }
 	});
  
- //new appointment information by user id
+
 	 app.post('/reservation/new/:id', async (req, res) => {
 		 let user = req.session.user;
 		 let userid = user._id;
@@ -318,7 +313,7 @@ const constructorMethod = (app) => {
 	app.use("*", (req, res) => {
 		res.status(404).json({ error: "Not found" });
 	  });
-	//app.use('/reservation_new', reservationData);
+	
 };
 
 
