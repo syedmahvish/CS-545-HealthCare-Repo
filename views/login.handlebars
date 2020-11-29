@@ -21,16 +21,17 @@
 <div class="box">
 <form id ="loginForm" action="/users/login" method="POST" >
         <h1>Login In</h1>
-        <label for="email"></label>     
+        {{!-- <label for="email"></label>      --}}
         <input id = "email" type="email" name="email" placeholder="Email" required >
-        <label for="password"></label>  
+        {{!-- <label for="password"></label>   --}}
         <input id = "password" type="password" name = "password" placeholder="Password" required >
-        <label for="submit"></label>  
+        {{!-- <label for="submit"></label>   --}}
         <input type="submit" value="Log In" placeholder="Log In">
-        <a href="/users/forgotPassword">Forgot Password?</a>
+         <a href="/users/forgotPassword">Forgot Password?</a>
+         <div id = "newUser"><a href="/users/signup">New User?</a></div>
     </form>
-      <div id = "newUser"><a href="/users/signup">New User?</a></div>
-      </div>
+    
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
