@@ -23,6 +23,7 @@
   <div class="header">
     <a href="/" class="logo"><img src="/public/images/logo" height="62" width="130"></a>
     <div class="header-right">
+      <a href="/">Home</a>
       <a href="/contact">Help</a>
       <a href="/users/signup">Signup</a>
       <a href="/users/login">Log In</a>
@@ -32,50 +33,69 @@
   {{!-- <div> --}}
   {{!-- <div class='searchClass'> --}}
   <form autocomplete="off" action="/search" id="searchContainer">
-    <div class="autocomplete" style="width:300px;">
+    <div class="autocomplete" style="color:#14bef0; width:300px;">
       <label for="hospitalSearch"></label>
       <input id="hospitalSearch" type="text" name="hospital" class="form-control"
         placeholder="Search By Hospital/Doctor" value="{{searchValue}}">
     </div>
     <input id="hospitalID" type="text" name="id">
-
-
-  <button type="submit" class="btn btn-success" id="search" value="Search">Search</button>
+    <button type=" submit" class="btn btn-success"
+      style="color:white;  font-size: medium; font-weight: 700; height:40px;" id="search" value="Search">Search</button>
   </form>
-{{!-- </div> --}}
-<div class="pecialityClass">
- 
-  <div class="btn-group" id="myDropdown">
-    <button id="dropDownButton" type="button" class="btn btn-primary dropdown-toggle buttonclass" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
-      {{#ifEquals specialityValue null}}
-      Select Specility
-      {{else}}
-      {{specialityValue}}
-      {{/ifEquals}}
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="/doctors/speciality/Gynaecologist">Gynaecologist</a>
-      <a class="dropdown-item" href="/doctors/speciality/Sexologist">Sexologist</a>
-      <a class="dropdown-item" href="/doctors/speciality/General Physician">General Physician</a>
-      <a class="dropdown-item" href="/doctors/speciality/Neurologist">Neurologist</a>
-      <a class="dropdown-item" href="/doctors/speciality/Psychiatry">Psychiatry</a>
-      <a class="dropdown-item" href="/doctors/speciality/ENT">Ear, Nose, Throat</a>
-      <a class="dropdown-item" href="/doctors/speciality/Eye and Vision">Eye and Vision</a>
-      <a class="dropdown-item" href="/doctors/speciality/Dermatologist">Dermatologist</a>
-      <a class="dropdown-item" href="/doctors/speciality/Dentist">Dental</a>
-      <a class="dropdown-item" href="/doctors/speciality/Cardiologist">Cardiologist</a>
-      <a class="dropdown-item" href="/doctors/speciality/Pediatrics">Pediatrics</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/doctors/speciality/all">other</a>
+
+  {{!-- <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="btn-group">
+        <button onclick="$('#layers').toggle();" type="button" class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown">
+          <span data-bind="label">Select One</span>&nbsp;<span class="caret"></span>
+        </button>
+        <ul id="layers" class="dropdown-menu" role="menu">
+          <span><img class="close_img dropdown-toggle" onclick="$('#layers').toggle();" data-toggle="dropdown"
+              src="https://www.eonenergy.com/images/icons/close.gif" alt="CloseWindow" title="Close"
+              style="margin-top:5px;margin-right:5px" /></span>
+          <li><a href="#">Item 1</a></li>
+          <li><a href="#">Another item</a></li>
+          <li><a href="#">This is a longer item that will not fit properly</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-  </div>
-<div class='headerClass'>
-  <div class="h1class"><span>Welcome to City HealthCare</span></div>
-</div>
+  </div> --}}
 
   {{!-- </div> --}}
+  <div class="pecialityClass">
+
+
+    <div class="btn-group">
+      <button onclick="$('#layers').toggle();" type="button" class="btn btn-primary dropdown-toggle"
+        data-toggle="dropdown" style="font-size: medium; font-weight: 700; height:40px;">
+        {{#ifEquals specialityValue null}}
+        Select Speciality
+        {{else}}
+        {{specialityValue}}
+        {{/ifEquals}}
+      </button>
+      <ul id="layers" class="dropdown-menu" role="menu">
+        <li><a class="dropdown-item" href="/doctors/speciality/Gynaecologist">Gynaecologist</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/Sexologist">Sexologist</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/General Physician">General Physician</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/Neurologist">Neurologist</a></li>
+        <li> <a class="dropdown-item" href="/doctors/speciality/Psychiatry">Psychiatry</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/ENT">Ear, Nose, Throat</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/Eye and Vision">Eye and Vision</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/Dermatologist">Dermatologist</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/Dentist">Dental</a></li>
+        <li> <a class="dropdown-item" href="/doctors/speciality/Cardiologist">Cardiologist</a></li>
+        <li><a class="dropdown-item" href="/doctors/speciality/Pediatrics">Pediatrics</a></li>
+        <div class="dropdown-divider"></div>
+        <li><a class="dropdown-item" href="/doctors/speciality/all">other</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class='headerClass'>
+    <div class="h1class"><span>Welcome to City HealthCare</span></div>
+  </div>
 
   <main>
     <div class="container" style="padding:16px">
@@ -195,6 +215,10 @@
         modal.find('#experience').val(experience);
 
       })
+
+      $(window).on('click', function () {
+        $('#layers').css('display', 'none'); //$( '#layers' ).hide();
+      });
 
     });
 
