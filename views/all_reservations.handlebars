@@ -1,44 +1,54 @@
 <main>
 
-  <br/> 
- <div class="container-fluid mb-4">
-   
-  <div class="row row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
-    {{#each reservationList}}     
-      <div class="card">
-         <div class="card-header text-white" style="background-color: rgb(36, 162, 208);"><strong>Booking ID:  #{{this._id}}</strong></div>
-         <div class="card-body">
-    <table style="color:darkslategray">
-     
-      <tr>
-        <td>Doctor:</td>
-        <td>{{this.doctor.name}}</td>
-      </tr>
-      <tr>
-        <td>Date:</td>
-        <td>{{this.date_formatted}}</td>
-      </tr>
-      <tr>
-        <td>Hospital:</td>
-        <td><span class="status-{{this.status}}">{{this.hospital.name}}</span></td>
-      </tr>
-      <tr>
-        <td>Status:</td>
-        <td style="color:rgb(30, 196, 30); font:bold;"> {{this.status}}</td>
-      </tr>
-      <tr>
-        <td>
+  <br />
+  <div class="container-fluid mb-4">
 
-        </td>
-        <td>
-          <a style="font-size: large;" href="/reservation/get/{{this._id}}"><u><bold>View</bold></u></a>
-        </td>
-      </tr>
-    </table>
-    </div>
+    <div class="row row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
+      {{#if reservationList}}
+      {{#each reservationList}}
+      <div class="card">
+        <div class="card-header text-white" style="background-color: rgb(36, 162, 208);"><strong>Booking ID:
+            #{{this._id}}</strong></div>
+        <div class="card-body">
+          <table style="color:darkslategray">
+
+            <tr>
+              <td>Doctor:</td>
+              <td>{{this.doctor.name}}</td>
+            </tr>
+            <tr>
+              <td>Date:</td>
+              <td>{{this.date_formatted}}</td>
+            </tr>
+            <tr>
+              <td>Hospital:</td>
+              <td><span class="status-{{this.status}}">{{this.hospital.name}}</span></td>
+            </tr>
+            <tr>
+              <td>Status:</td>
+              <td style="color:rgb(30, 196, 30); font:bold;"> {{this.status}}</td>
+            </tr>
+            <tr>
+              <td>
+
+              </td>
+              <td>
+                <a style="font-size: large;" href="/reservation/get/{{this._id}}"><u>
+                    <bold>View</bold>
+                  </u></a>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
 
-    {{/each}}
+      {{/each}}
+      {{else}}
+    </div>
+
+    <div style="margin-left: 350px; font-size: large; color: #283779">There are no reservations for you.
+    </div>
+    {{/if}}
   </div>
-</div>
+  </div>
 </main>
