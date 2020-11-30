@@ -35,6 +35,31 @@ a.card_link {
   text-align: center;
 }
 
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  /* Should be removed. Only for demonstration */
+}
+
+.columnRight {
+  float: right;
+  width: 75%;
+  padding: 10px;
+  /* Should be removed. Only for demonstration */
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
 /* .error {
   width: 300px;
   padding: 40px;
