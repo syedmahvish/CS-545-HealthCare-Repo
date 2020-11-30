@@ -23,7 +23,8 @@
       <form id="reservationForm" action="/reservation/new/{{docsList._id}}" method="POST">
         <div style="background-color: rgb(36, 162, 208);" class="card-header text-white"> <img
             src="/public/images/Capture.JPG" alt="No Image" width="30px" height="30px"> <strong>New In-clinic
-            Appointment</strong></div>
+            Appointment</strong>
+        </div>
 
         <div class="card-body cardClass">
           <div class="form-row">
@@ -74,7 +75,13 @@
           </div>
 
 
-          <div><button type="submit" class="btn btn-primary btn-block">Schedule</button></div>
+          <div>
+            <button type="submit" class="btn btn-primary btn-block">Schedule</button>
+            <br />
+            <center> <a class="btn btn-primary" href="/doctors">Back</a></center>
+
+          </div>
+
         </div>
 
     </div>
@@ -85,8 +92,8 @@
 
 
   <br />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
   <script src='/public/scripts/script_reservation_new.js'></script>
   <script>DateRestrict();</script>
 

@@ -146,7 +146,7 @@ const constructorMethod = (app) => {
 			 const reservation = await reservationData.editReservation(appointmentId, resvDate);
 			 const doctor = await doctorData.getDoctor(reservation.doctor_id);
 			 const hospital = await hospitalData.getHospitalById(reservation.hospital_id);
-			 res.render('reservation',{user:user,appointment:reservation, doctor:doctor, hospital:hospital, title:"Your appointment date has been changed."});
+			//  res.render('reservation',{user:user,appointment:reservation, doctor:doctor, hospital:hospital, title:"Your appointment date has been changed."});
 		 } catch (e) {
 		   res.status(400).redirect('/reservation');
 		 }

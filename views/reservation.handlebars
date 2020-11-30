@@ -19,7 +19,6 @@
   <div class="container">
     <div class="card bg-light mx-auto" id="viewForm" style="">
 
-
       <div class="card-header text-white bg-success mb-3"><strong>Status: {{appointment.status}}</strong></div>
 
 
@@ -112,14 +111,20 @@
             <strong>Success!</strong> Appointment Date has been changed.
           </div>
           <div><button type="submit" class="btn btn-primary btn-block"
-              onclick="showElement('#success-alert');">Reschedule</button></div>
+              onclick="showElement('#success-alert');">Reschedule</button>
+            <br />
+            <center> <a class="btn btn-primary" href="/reservation/get/{{appointment._id}}">Back</a></center>
+          </div>
+
         </div>
+
     </div>
     <br />
 
     </form>
   </div>
   <br />
+
   <script src='/public/scripts/script_reservation_new.js'></script>
   <script>RefreshRestrict();</script>
   <script>DateRestrict();</script>
