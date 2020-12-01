@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login In</title>
-  <link rel="stylesheet" href="/public/stylesheets/formPage.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login In</title>
+    <link rel="stylesheet" href="/public/stylesheets/formPage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
-
 <body>
 
-  {{!-- form for specific doctors --}}
+{{!-- form for specific doctors --}}
 
-  {{!-- <div class="container">
+{{!-- <div class="container">
     <div class="card bg-light mx-auto"  >
   
     <form action="/reservation/edit/{{appointment._id}}" method="POST">
@@ -64,106 +62,85 @@
     
     </form>
     </div> --}}
-
-
-  <br />
-
-
-
+  
+  
+  <br/>
 
 
 
 
 
-  {{!-- //old --}}
-  <div class="container">
-    <div class="card bg-light mx-auto">
-
-      <form id="reservationForm" action="/reservation/new/{{docsList._id}}" method="POST">
-        <div style="background-color: rgb(36, 162, 208);" class="card-header text-white"><strong>You are creating a new
-            appointment</strong></div>
-
-        <div class="card-body cardClass">
-          <table>
-
-            <tr class="d-flex">
-              <td><label for="docName">Doctor's Name:</label></td>
-              <td><input style="background-color: darkgray;" value="{{docsList.name}}" type="text" name="docName"
-                  id="docName" readonly></td>
-            </tr>
-            <tr class="d-flex">
-              <td><label for="specs">Specialization:&nbsp&nbsp</label></td>
-              <td><input style="background-color: darkgray;" value="{{docsList.specialization}}" type="text"
-                  name="specs" id="specs" readonly></td>
-            </tr>
-            <tr class="d-flex">
-              <td><label for="fname">Patient's Name:</label></td>
-              <td><input style="background-color: darkgray;" value="{{user.userName}}" type="text" name="fname"
-                  id="fname" readonly></td>
-            </tr>
-            <tr class="d-flex">
-              <td><label for="email">Patient's Email:&nbsp</label></td>
-              <td><input style="background-color: darkgray;" value="{{user.email}}" type="text" name="email" id="email"
-                  readonly></td>
-            </tr>
-
-            <tr class="d-flex">
-              <td><label for="hospital">Select Hospital:</label></td>
-
-              <td><select name="hospital" id="hospital" required>
-
-                  {{#ifNotEquals hospital null}}
-                  <option value="{{hospital._id}}">{{hospital.name}}</option>
-                  {{else}}
-                  <option value="">Select</option>
-                  {{#each HospitalList}}
-                  <option value="{{this._id}}">{{this.name}}</option>
-                  {{/each}}
-                  {{/ifNotEquals}}
-                </select></td>
-            </tr>
-            <br />
-            <tr class="d-flex">
-              <td><label
-                  for="resvDate">Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-              </td>
-              <td><input type="date" name="resvDate" id="resvDate" value="" required></td>
-            </tr>
-            <tr class="d-flex">
-              <td>
-                <div class="row">
-                  <div class="columnRight">
-                    <button type="submit" class="btn btn-primary">Schedule</button>
-                  </div>
 
 
-                  <div class="column">
-                    <a class="btn btn-primary" href="/doctors">Back</a>
-                  </div>
-                </div>
-              </td>
-              {{!-- <td></td>
-              <td><button type="submit" class="btn btn-primary">Schedule</button></td>
-              <td></td>
-              <td style="float: left; width=50%;"><a class="btn btn-primary" href="/doctors">Back</a></td> --}}
-            </tr>
+
+{{!-- //old --}}
+ <div class="container">
+  <div class="card bg-light mx-auto">
+    
+    <form id ="reservationForm" action="/reservation/new/{{docsList._id}}" method="POST" >
+      <div style="background-color: rgb(36, 162, 208);"class="card-header text-white"><strong>You are creating a new appointment</strong></div>
+
+      <div class="card-body cardClass">
+        <table>
+          
+               <tr class="d-flex">
+                  <td><label for="docName">Doctor's Name:</label></td>
+                  <td><input style="background-color: darkgray;" value="{{docsList.name}}" type="text" name="docName" id="docName" readonly></td>
+              </tr>
+              <tr class="d-flex">
+                  <td><label for="specs">Specialization:&nbsp&nbsp</label></td>
+                  <td><input  style="background-color: darkgray;" value="{{docsList.specialization}}" type="text" name="specs" id="specs" readonly></td>
+              </tr>
+              <tr class="d-flex">
+                  <td><label for="fname">Patient's Name:</label></td>
+                  <td><input style="background-color: darkgray;" value="{{user.userName}}"   type="text" name="fname" id="fname" readonly></td>
+              </tr>
+              <tr class="d-flex">
+                <td><label for="email">Patient's Email:&nbsp</label></td>
+                  <td><input style="background-color: darkgray;" value="{{user.email}}" type="text" name="email" id="email" readonly></td>
+              </tr>
+              
+              <tr class="d-flex">
+                <td><label for="hospital">Select Hospital:</label></td>
+              
+                  <td><select name="hospital" id="hospital" required>
+              
+                      {{#ifNotEquals hospital null}}
+                            <option value="{{hospital._id}}">{{hospital.name}}</option>
+                        {{else}}
+                            <option value="">Select</option>
+                          {{#each HospitalList}}
+                          <option value="{{this._id}}">{{this.name}}</option>
+                          {{/each}}
+                        {{/ifNotEquals}}
+                    </select></td>
+              </tr>
+              <br/>
+              <tr class="d-flex">
+                <td><label for="resvDate">Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label></td>
+                  <td><input type="date" name="resvDate" id="resvDate" value="" required></td>
+              </tr>
+              <tr class="d-flex">
+               <td></td>
+                  <td><button type="submit" class="btn btn-primary">Schedule</button></td>
+              </tr>
           </table>
-        </div>
+   </div>
 
     </div>
-    <br />
-
+    <br/>
+    
     </form>
-  </div>
+    </div>
+  
+  
+  <br/>
 
-
-  <br />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src='/public/scripts/script_reservation_new.js'></script>
-  <script>DateRestrict();</script>
-  {{!-- <script>DateRestrict();</script> --}}
-
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='/public/scripts/script_reservation_new.js'></script>
+    <script>DateRestrict();</script>
+    {{!-- <script>DateRestrict();</script> --}}
+    
 
 </body>
 

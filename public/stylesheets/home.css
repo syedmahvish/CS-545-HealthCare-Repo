@@ -1,97 +1,97 @@
 * {
-  box-sizing: border-box;
-}
-
+    box-sizing: border-box;
+  }
+  
 .autocomplete {
-  position: relative;
-  display: inline-block;
-}
-
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-
-input[type="text"] {
-  background-color: #f1f1f1;
-  width: 100%;
-}
-
-input[type="submit"] {
-  background-color: DodgerBlue;
-  color: #fff;
-  cursor: pointer;
-}
-
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
-}
-
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-  background-color: #e9e9e9;
-}
-
-/*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-  background-color: DodgerBlue !important;
-  color: #ffffff;
-}
-#hospitalID {
-  display: none;
-}
-#searchContainer {
-  float: right;
-  margin-right: 25px;
-}
-input[type="submit"]:disabled,
-input[type="submit"][disabled] {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+  }
+  
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+  #hospitalID {
+    display: none;
+  }
+  #searchContainer{
+    float: right;
+    margin-right: 25px;
+  }
+  input[type = "submit"]:disabled,
+  input[type = "submit"][disabled]{
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
 }
 
-.doctorlist {
+.doctorlist{
   margin: 10px 0;
   /* margin-left: 10px; */
 }
-.doctorli {
+.doctorli{
   width: 100% !important;
 }
 
-.listMain {
+.listMain{
   display: flex;
 }
-.doctor {
+.doctor{
   width: 30%;
-  display: inline;
-  float: left;
+  display:inline;
+  float:left;
 }
 
-.doctor img {
+.doctor img{
   height: 170px;
   width: 170px;
   border-radius: 50% !important;
 }
 
-.doctorDetails {
+.doctorDetails{
   /* flex: 0 0 61%;
   padding-left: 20px; */
   width: 40%;
@@ -99,10 +99,10 @@ input[type="submit"][disabled] {
   text-align: left;
   float: right;
   /* position: absolute;  */
-  bottom: 0px;
+  bottom: 0px; 
 }
 
-.h1class {
+.h1class{
   display: block;
   font-size: 2em;
   margin-top: 0.83em;
@@ -114,7 +114,7 @@ input[type="submit"][disabled] {
   text-align: center;
 }
 
-.h2class {
+.h2class{
   display: block;
   font-size: 1.5em;
   margin-top: 0.83em;
@@ -122,10 +122,10 @@ input[type="submit"][disabled] {
   margin-left: 0;
   margin-right: 0;
   font-weight: 500;
-  color: #14bef0;
+  color: #14BEF0;
 }
 
-.h3class {
+.h3class{
   display: block;
   font-size: 1.01em;
   margin-left: 0;
@@ -133,33 +133,32 @@ input[type="submit"][disabled] {
   color: #999999;
 }
 
-.doctorContact {
+.doctorContact{
   width: 30%;
-  display: inline;
+  display:inline;
   text-align: left;
   float: right;
 }
 
-.card {
-  background: #fffdfd;
-  width: 70%;
-  display: block;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  /* margin-left: 30px; */
-  padding: 14px;
-  box-shadow: 0px 0px 4px #bbb9b9;
+.card{background: #fffdfd;
+width: 70%;
+display: block;
+border-radius: 5px;
+margin-bottom: 10px;
+/* margin-left: 30px; */
+padding: 14px;
+box-shadow: 0px 0px 4px #bbb9b9;
 }
 
-.container {
+.container{
   /* margin-left: 5%; */
 }
 
-.submit {
+.submit{
   width: 212px;
   height: 40px;
   padding: 4px 0;
-  background-color: #14bef0;
+  background-color: #14BEF0;
   color: white;
   font-size: medium;
   font-weight: 700;
@@ -193,44 +192,42 @@ input[type="submit"][disabled] {
   visibility: visible;
 }
 
-ul {
+ul{
   list-style-type: none;
 }
-.modal-body {
-  background-color: lightblue;
+.modal-body{
+  background-color:lightblue;
 }
-.modal-body #description {
+.modal-body #description{
   width: 100%;
   height: 100px;
+  
 }
 
-.modal-body .col-form-label {
+.modal-body .col-form-label{
   font-weight: bold;
 }
 
-.headerClass {
+.headerClass{
   width: 50%;
   float: center;
 }
-.pecialityClass {
-  width: 14%;
-  display: inline;
+.pecialityClass{
+  width: 24%;
+  display:inline;
   text-align: center;
-  float: right;
-  margin-top: 2%;
+  float:right;
+  margin-top: 2%;;
 }
-.searchClass {
+.searchClass{
   width: 26%;
-  display: inline;
+  display:inline;
   text-align: center;
   float: right;
+
 }
-.buttonclass {
+.buttonclass{
   width: 170px;
   height: 40px;
-}
 
-.searchButton {
-  background-color: #065e96;
-  color: white;
 }
