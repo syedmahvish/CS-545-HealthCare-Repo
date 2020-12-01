@@ -1,190 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Appointment is confirmed.</title>
-    <link rel="stylesheet" href="/public/stylesheets/formPage.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Appointment is confirmed.</title>
+  <link rel="stylesheet" href="/public/stylesheets/formPage.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
 
 </head>
+
 <body>
+  <div class="container">
+    <div class="card bg-light mx-auto" id="viewForm" style="">
 
-<div class="container">
-   <h2 style="margin-left: 280px; font-size: 25px;" id="h2">Appointment confirmation details</h2><br/>
 
-{{!--    //display reservation details --}}
-    <div class="card bg-light mx-auto" id="viewForm" style="width: 40rem;">
-   
-  
       <div class="card-header text-white bg-success mb-3"><strong>Status: {{appointment.status}}</strong></div>
-               
-  
-        <div class="card-body cardClass">
-          <table>
-                  <tr class="d-flex">
-                      <td style="font-weight:bold;color: #191970;">Patient Name:  </td>
-                      <td>    &nbsp&nbsp{{user.userName}}</td>
-                  </tr>
-                  <tr class="d-flex">
-                      <td style="font-weight:bold;color: #191970;">Patient ID:  </td>
-                      <td> &nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp #{{user._id}}</td>
-                  </tr>
-                  <tr class="d-flex">
-                      <td style="font-weight:bold;color: #191970;">Doctor's Name:  </td>
-                      <td>    {{doctor.name}}</td>
-                  </tr>
-                  <tr class="d-flex">
-                      <td style="font-weight:bold;color: #191970;">Hospital Name:  </td>
-                      <td>    {{hospital.name}}</td>
-                  </tr>
-                  <tr class="d-flex">
-                    <td style="font-weight:bold;color: #191970;">Date:  </td>
-                      <td>   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{appointment.date}}</td>
-                  </tr>
-                
-                  <tr class="d-flex">
-                      <td style="font-weight:bold;color: #191970;"><label id="notesID" for="textAreaNote">Notes: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label></td>
-                      
-                      <td><textarea placeholder="Add your notes here for your appointment" name="textAreaNote" id="textAreaNote" rows="1" cols="40" required></textarea>
-                     <p id="addedNotes">{{appointment.notes}}</p></td>
 
-                  </tr>
-                  <tr class="d-flex">
-                      <td>
-                        <button class="btn btn-primary" onclick="hideElement('#viewForm');hideElement('#h2');;showElement('#editForm'); return false;">Edit</button>
-                          <button onclick="cancelReserv('{{appointment._id}}'); return false;" class="btn btn-primary">Cancel</button>
-                      </td>
-                        <td>
-                          {{!-- <button class="btn btn-primary" onclick="hideElement('#viewForm');hideElement('#h2');;showElement('#editForm'); return false;">Edit</button>
-                          <button onclick="cancelReserv('{{appointment._id}}'); return false;" class="btn btn-primary">Cancel</button> --}}
-                          <button class="btn btn-primary" id="addNotesSubmit" onclick="updateNotes('{{appointment._id}}')">Update Notes</button>
-                          
-                          </td>
-                    </tr>
-              </table>
+
+      <div class="card-body cardClass">
+        <div class="form-group">
+          <p class="" style="color: #191970;" for="fname"><b>Patient Name:</b> {{user.userName}}
+          </p>
+          <p style="color: #191970;" for="id"><b>Patient ID:</b> #{{user._id}}</p>
+          <p style="color: #191970;" for="doc"><b>Doctor's Name:</b> {{doctor.name}}</p>
+          <p style="color: #191970;" for="hosp"><b>Hospital Name:</b> {{hospital.name}}</p>
+          <p style="color: #191970;" for="date"><b>Date:</b> {{appointment.date}}</p>
+          <label id="notesID" for="textAreaNote"><b>Notes:</b></label>
+
+          <textarea class="form-control" id="textAreaNote" rows="1" cols="3"
+            placeholder="Add your notes here for your appointment" name="textAreaNote" id="textAreaNote"
+            required></textarea>
+          <p style="color: #191970;" id="addedNotes">{{appointment.notes}}</p>
+          <div id="empty-notes" class="alert alert-danger alert-dismissible fade show" style="display: none;">
+            <button type="button" class="close btn-sm" data-dismiss="alert">&times;</button>
+            <strong>Alert!</strong> Notes cannot be empty.
+          </div>
+
         </div>
-  
-    </div>
-    </div>
+        <div class="btn-group" role="group" aria-label="manage">
+          <button class="btn btn-secondary"
+            onclick="hideElement('#viewForm');hideElement('#h2');showElement('#editForm'); return false;">Edit</button>
+          <button onclick="cancelReserv('{{appointment._id}}'); return false;" class="btn btn-secondary">Cancel</button>
+
+          <button class="btn btn-secondary" id="addNotesSubmit" onclick="updateNotes('{{appointment._id}}')">Update
+            Notes</button>
+
+        </div>
 
 
-{{!-- //edit reservation form page --}}
-<div class="container">
+
+
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+  <div class="container">
     <div class="card bg-light mx-auto" id="editForm" style="display: none">
-  
-    <form action="/reservation/edit/{{appointment._id}}" method="POST">
-      <div style="background-color: rgb(36, 162, 208);"class="card-header text-white"><strong>You are editing your appointment date</strong></div>
+
+
+      <form action="/reservation/edit/{{appointment._id}}" method="POST">
+        <div style="background-color: rgb(36, 162, 208);" class="card-header text-white"><strong>You are editing your
+            appointment #{{appointment._id}}</strong></div>
         <div class="card-body cardClass">
-          <table>
-     
-          <tr>
-              <td><label for="docName">Doctor's Name:</label></td>
-              <td><input style="background-color: lightgray;" value="{{doctor.name}}" type="text" name="docName" id="docName" readonly></td>
-          </tr>
-          <tr>
-              <td><label for="specs">Specialization:</label></td>
-              <td><input  style="background-color: lightgray;" value="{{doctor.specialization}}" type="text" name="specs" id="specs" readonly></td>
-          </tr>
-          <tr>
-              <td><label for="fname">Patient's Name:</label></td>
-              <td><input style="background-color: lightgray;" value="{{user.userName}}"   type="text" name="fname" id="fname" readonly></td>
-          </tr>
-          <tr>
-            <td><label for="lname">Patient's Email:</label></td>
-              <td><input style="background-color: lightgray;" value="{{user.email}}" type="text" name="lname" id="lname" readonly></td>
-          </tr>
-        
-            <tr>
-              <td><label for="hospName">Hospital:</label></td>
-              <td><input style="background-color: lightgray;" value="{{hospital.name}}" type="text" name="hospName" id="hospName" readonly></td>
-            </tr>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="docName">Doctor's Name</label>
+              <input class="form-control" style="background-color: lightgray;" value="{{doctor.name}}" type="text"
+                name="docName" id="docName" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="specs">Specialization</label>
+              <input class="form-control" style="background-color: lightgray;" value="{{doctor.specialization}}"
+                type="text" name="specs" id="specs" readonly>
+            </div>
+          </div>
 
-          <tr>
-            <td><label for="resvDate">Edit Date:</label></td>
-              <td><input type="date" name="app_date" id="resvDate" value="" required></td>
-          </tr>
-        <tr>
-          <td></td>
-            <td colspan="2"><button  type="submit" class="btn btn-primary">Reschedule</button></td>
-        </tr>
-    </table>
-    </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="fname">Patient's Name</label>
+              <input class="form-control" style="background-color: lightgray;" value="{{user.userName}}" type="text"
+                name="fname" id="fname" readonly>
+            </div>
 
+            <div class="form-group col-md-6">
+              <label for="email">Patient's Email</label>
+              <input class="form-control" style="background-color: lightgray;" value="{{user.email}}" type="text"
+                name="lname" id="lname" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="hospital">Hospital</label>
+              <input class="form-control" style="background-color: lightgray;" value="{{hospital.name}}" type="text"
+                name="hospName" id="hospName" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="resvDate">Change Date</label>
+              <input class="form-control" value="{{appointment.date}}" type="date" name="app_date" id="resvDate"
+                value="" required>
+            </div>
+          </div>
+          <div id="success-alert" class="alert alert-success" style="display: none;">
+            <strong>Success!</strong> Appointment Date has been changed.
+          </div>
+          <div><button type="submit" class="btn btn-primary btn-block"
+              onclick="showElement('#success-alert');">Reschedule</button></div>
+        </div>
     </div>
-    <br/>
-    
+    <br />
+
     </form>
-    </div>
-  
-  
-  <br/>
-
-
-
-
-
-
-
- {{!--  <div class="card" id="viewForm">
-    
-        <table>
-            <tr>
-                <td>Name:</td>
-                <td>{{user.userName}}</td>
-            </tr>
-            <tr>
-                <td>Patient ID:</td>
-                <td>#{{user._id}}</td>
-            </tr>
-            <tr>
-                <td>Doctor's Name:</td>
-                <td>{{doctor.name}}</td>
-            </tr>
-            <tr>
-                <td>Hospital Name:</td>
-                <td>{{hospital.name}}</td>
-            </tr>
-            <tr>
-                <td>Date:</td>
-                <td>{{appointment.date}}</td>
-            </tr>
-            <tr>
-                <td>Status:</td>
-                <td style="background-color:lightgreen;">{{appointment.status}}</td>
-            </tr>
-            <tr>
-                <td><label id="notesID" for="textAreaNote">Notes:</label></td>
-                
-                <td><textarea style="display:none;" name="textAreaNote" id="textAreaNote" rows="4" cols="50"></textarea>
-                <p id="addedNotes">{{appointment.notes}}</p><button class="button1" id="addNotesSubmit" hidden onclick="updateNotes('{{appointment._id}}')">Update Notes</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                  <td><br>
-                    <button class="button1" onclick="showElement('#editForm');hideElement('#viewForm'); return false;">Edit Appointment</button>
-                    <button onclick="cancelReserv('{{appointment._id}}'); return false;" class="button1">Cancel Appointment</button>
-                    <button onclick="addNotes(); return false;" class="button1" id="addNoteButton">Add Notes</button>
-                    
-                    </td>
-              </tr>
-        </table><br/>
-  
-  </div> --}}
-
-  
-   
-
-
-  <br/>
-  
+  </div>
+  <br />
   <script src='/public/scripts/script_reservation_new.js'></script>
-    <script>RefreshRestrict();</script>
-    <script>DateRestrict();</script>
+  <script>RefreshRestrict();</script>
+  <script>DateRestrict();</script>
 </body>
-</html> 
+
+</html>
