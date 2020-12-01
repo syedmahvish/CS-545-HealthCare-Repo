@@ -1,146 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login In</title>
-    <link rel="stylesheet" href="/public/stylesheets/formPage.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login In</title>
+  <link rel="stylesheet" href="/public/stylesheets/formPage.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
 
-{{!-- form for specific doctors --}}
 
-{{!-- <div class="container">
-    <div class="card bg-light mx-auto"  >
-  
-    <form action="/reservation/edit/{{appointment._id}}" method="POST">
-      <div class="card-header"><strong>You are editing your appointment date</strong></div>
-        <div class="card-body">
-          <table>
-     
-          <tr>
-              <td><label for="docName">Doctor's Name:</label></td>
-              <td><input style="background-color: lightgray;" value="{{doctor.name}}" type="text" name="docName" id="docName" readonly></td>
-          </tr>
-          <tr>
-              <td><label for="specs">Specialization:</label></td>
-              <td><input  style="background-color: lightgray;" value="{{doctor.specialization}}" type="text" name="specs" id="specs" readonly></td>
-          </tr>
-          <tr>
-              <td><label for="fname">Patient's Name:</label></td>
-              <td><input style="background-color: lightgray;" value="{{user.userName}}"   type="text" name="fname" id="fname" readonly></td>
-          </tr>
-          <tr>
-            <td><label for="lname">Patient's Email:</label></td>
-              <td><input style="background-color: lightgray;" value="{{user.email}}" type="text" name="lname" id="lname" readonly></td>
-          </tr>
-        
-            <tr>
-              <td><label for="hospName">Hospital:</label></td>
-              <td><input style="background-color: lightgray;" value="{{hospital.name}}" type="text" name="hospName" id="hospName" readonly></td>
-            </tr>
+  <div class="container">
+    <div class="card bg-light mx-auto">
 
-          <tr>
-            <td><label for="resvDate">Edit Date:</label></td>
-              <td><input type="date" name="app_date" id="resvDate" value="" required></td>
-          </tr>
-        <tr>
-          <td></td>
-            <td><button type="submit" class="btn btn-primary">Reschedule</button></td>
-        </tr>
-    </table>
+      <form id="reservationForm" action="/reservation/new/{{docsList._id}}" method="POST">
+        <div style="background-color: rgb(36, 162, 208);" class="card-header text-white"> <img
+            src="/public/images/Capture.JPG" alt="No Image" width="30px" height="30px"> <strong>New In-clinic
+            Appointment</strong>
+        </div>
+
+        <div class="card-body cardClass">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="docName">Doctor's Name</label>
+              <input style="background-color: darkgray;" type="text" value="{{docsList.name}}" class="form-control"
+                name="docName" id="docName" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="specs">Specialization</label>
+              <input style="background-color: darkgray;" value="{{docsList.specialization}}" class="form-control"
+                type="text" name="specs" id="specs" readonly>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="fname">Patient's Name</label>
+              <input style="background-color: darkgray;" value="{{user.userName}}" class="form-control" type="text"
+                name="fname" id="fname" readonly>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="email">Patient's Email</label>
+              <input class="form-control" input style="background-color: darkgray;" value="{{user.email}}" type="text"
+                name="email" id="email" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="hospital">Hospital</label>
+              <select name="hospital" id="hospital" class="form-control" required>
+
+                {{#ifNotEquals hospital null}}
+                <option value="{{hospital._id}}">{{hospital.name}}</option>
+                {{else}}
+                <option value="">Select</option>
+                {{#each HospitalList}}
+                <option value="{{this._id}}">{{this.name}}</option>
+                {{/each}}
+                {{/ifNotEquals}}
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="resvDate">Select Date</label>
+              <input type="date" class="form-control" name="resvDate" id="resvDate" required>
+            </div>
+          </div>
+
+
+          <div>
+            <button type="submit" class="btn btn-primary btn-block">Schedule</button>
+            <br />
+            <center> <a class="btn btn-primary" href="/doctors">Back</a></center>
+
+          </div>
+
+        </div>
+
     </div>
+    <br />
 
-    </div>
-    <br/>
-    
     </form>
-    </div> --}}
-  
-  
-  <br/>
+  </div>
 
 
-
-
-
-
-
-
-{{!-- //old --}}
- <div class="container">
-  <div class="card bg-light mx-auto">
-    
-    <form id ="reservationForm" action="/reservation/new/{{docsList._id}}" method="POST" >
-      <div style="background-color: rgb(36, 162, 208);"class="card-header text-white"><strong>You are creating a new appointment</strong></div>
-
-      <div class="card-body cardClass">
-        <table>
-          
-               <tr class="d-flex">
-                  <td><label for="docName">Doctor's Name:</label></td>
-                  <td><input style="background-color: darkgray;" value="{{docsList.name}}" type="text" name="docName" id="docName" readonly></td>
-              </tr>
-              <tr class="d-flex">
-                  <td><label for="specs">Specialization:&nbsp&nbsp</label></td>
-                  <td><input  style="background-color: darkgray;" value="{{docsList.specialization}}" type="text" name="specs" id="specs" readonly></td>
-              </tr>
-              <tr class="d-flex">
-                  <td><label for="fname">Patient's Name:</label></td>
-                  <td><input style="background-color: darkgray;" value="{{user.userName}}"   type="text" name="fname" id="fname" readonly></td>
-              </tr>
-              <tr class="d-flex">
-                <td><label for="email">Patient's Email:&nbsp</label></td>
-                  <td><input style="background-color: darkgray;" value="{{user.email}}" type="text" name="email" id="email" readonly></td>
-              </tr>
-              
-              <tr class="d-flex">
-                <td><label for="hospital">Select Hospital:</label></td>
-              
-                  <td><select name="hospital" id="hospital" required>
-              
-                      {{#ifNotEquals hospital null}}
-                            <option value="{{hospital._id}}">{{hospital.name}}</option>
-                        {{else}}
-                            <option value="">Select</option>
-                          {{#each HospitalList}}
-                          <option value="{{this._id}}">{{this.name}}</option>
-                          {{/each}}
-                        {{/ifNotEquals}}
-                    </select></td>
-              </tr>
-              <br/>
-              <tr class="d-flex">
-                <td><label for="resvDate">Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label></td>
-                  <td><input type="date" name="resvDate" id="resvDate" value="" required></td>
-              </tr>
-              <tr class="d-flex">
-               <td></td>
-                  <td><button type="submit" class="btn btn-primary">Schedule</button></td>
-              </tr>
-          </table>
-   </div>
-
-    </div>
-    <br/>
-    
-    </form>
-    </div>
-  
-  
-  <br/>
-
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src='/public/scripts/script_reservation_new.js'></script>
-    <script>DateRestrict();</script>
-    {{!-- <script>DateRestrict();</script> --}}
-    
+  <br />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+  <script src='/public/scripts/script_reservation_new.js'></script>
+  <script>DateRestrict();</script>
 
 </body>
 
