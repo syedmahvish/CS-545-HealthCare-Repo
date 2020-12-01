@@ -105,13 +105,6 @@ router.post('/', async (req, res) => {
   router.post('/resetPassword', async (req, res) => {
     const email = xss(req.body['email']);
     const pass = xss(req.body['password']);
-    // let usersRequest = req.query;
-    // let usersResponse = req.body;
-    // if (!usersRequest.id) {
-    //   res.status(400).json({error: 'You must provide id'});
-    //   return;
-    // }
-  
     try {
       const result = await usersData.updatePassword_new(email,pass);
         // const result = await usersData.updatePassword(xss(usersRequest.id), xss(usersResponse['password']));
