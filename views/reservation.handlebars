@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Appointment is confirmed.</title>
-    <link rel="stylesheet" href="/public/stylesheets/formPage.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Appointment is confirmed.</title>
+  <link rel="stylesheet" href="/public/stylesheets/formPage.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
 
 </head>
+
 <body>
-
 <div class="container">
-
-{{!--    //display reservation details --}}
     <div class="card bg-light mx-auto" id="viewForm" style="">
    
   
@@ -56,12 +55,12 @@
         </div>
   
     </div>
+
     </div>
-
-
-{{!-- //edit reservation form page --}}
-<div class="container">
+  </div>
+  <div class="container">
     <div class="card bg-light mx-auto" id="editForm" style="display: none">
+
   
     <form action="/reservation/edit/{{appointment._id}}" method="POST">
       <div style="background-color: rgb(36, 162, 208);"class="card-header text-white"><strong>You are editing your appointment #{{appointment._id}}</strong></div>
@@ -103,32 +102,15 @@
   </div>
     <div><button  type="submit" class="btn btn-primary btn-block" onclick="showElement('#success-alert');">Reschedule</button></div>
     </div>
-
     </div>
-    <br/>
-    
+    <br />
+
     </form>
-    </div>
-  
-  
+  </div>
   <br/>
-
-
-
-
-
-
-
- 
-
-  
-   
-
-
-  <br/>
-  
   <script src='/public/scripts/script_reservation_new.js'></script>
-    <script>RefreshRestrict();</script>
-    <script>DateRestrict();</script>
+  <script>RefreshRestrict();</script>
+  <script>DateRestrict();</script>
 </body>
-</html> 
+
+</html>
