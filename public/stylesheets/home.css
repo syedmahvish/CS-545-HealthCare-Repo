@@ -80,24 +80,25 @@
   display: flex;
 }
 .doctor{
-  width: 30%;
-  display:inline;
-  float:left;
+  /* width: 30%; */
+  display:inline-block
+  /* float:left; */
 }
 
 .doctor img{
   height: 170px;
   width: 170px;
   border-radius: 50% !important;
+  /* display: inline-block; */
 }
 
 .doctorDetails{
   /* flex: 0 0 61%;
   padding-left: 20px; */
-  width: 40%;
-  display: inline;
-  text-align: left;
-  float: right;
+  /* width: 40%; */
+  display: inline-block;
+  text-align: center;
+  /* float: right; */
   /* position: absolute;  */
   bottom: 0px; 
 }
@@ -134,14 +135,14 @@
 }
 
 .doctorContact{
-  width: 30%;
-  display:inline;
+  /* width: 30%; 
+  display:block; */
   text-align: left;
-  float: right;
+  /* float: right; */
 }
 
 .card{background: #fffdfd;
-width: 70%;
+width: 60%;
 display: block;
 border-radius: 5px;
 margin-bottom: 10px;
@@ -163,9 +164,10 @@ box-shadow: 0px 0px 4px #bbb9b9;
   font-size: medium;
   font-weight: 700;
   margin-bottom: 2%;
-  float: right;
+  /* float: right; */
   border-radius: 5px;
   /* margin-top: 70%; */
+  display: block;
 }
 
 .doctorContact .tooltip {
@@ -210,20 +212,23 @@ ul{
 
 .headerClass{
   width: 50%;
-  float: center;
-}
-.pecialityClass{
-  width: 24%;
-  display:inline;
+  /* float: center; */
+  display:inline-block;
   text-align: center;
-  float:right;
-  margin-top: 2%;;
+}
+.specialityClass{
+  /* width: 35%; */
+  display:inline-block;
+  text-align: center;
+  /* float:right; */
+  /* margin-top: 2%;; */
 }
 .searchClass{
-  width: 26%;
+  width: 30%;
   display:inline;
   text-align: center;
-  float: right;
+  display:inline-block !important;
+  /* float: right; */
 
 }
 .buttonclass{

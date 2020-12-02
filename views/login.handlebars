@@ -15,7 +15,6 @@
 </head>
 
 <body background="/public/images/background_image.jpg">
-
     {{#if hasErrors}}
     <p id="error_alert" class="error">{{error}}</p>
     <div id="closebtnId1" class="closebtn"> &times;</div>
@@ -31,12 +30,11 @@
             <input id="password" type="password" name="password" placeholder="Password" required>
             {{!-- <label for="submit"></label>   --}}
             <input type="submit" value="Log In" placeholder="Log In">
-            <a href="/users/forgotPassword">Forgot Password?</a>
+            <a href="/users/changePassword">Forgot Password?</a>
             <div id="newUser"><a href="/users/signup">New User?</a></div>
         </form>
 
     </div>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src='/public/scripts/script_login.js'></script>

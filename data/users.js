@@ -3,6 +3,7 @@ const mongoCollections = require('../config/mongoCollections');
 const users = mongoCollections.users;
 const { ObjectId } = require('mongodb');
 const nodemailer = require("nodemailer");
+const { Console } = require("console");
 module.exports = {
 async getUser(id) {
     if (!id) throw 'You must provide an id to search for';
@@ -174,6 +175,43 @@ async addAddress(userID, addressId, address, city, state, zip, country) {
 
     return await this.getUser(userId);
   },
+
+  async updatePassword_new(emaild, password){
+      console.log('in updared code');
+    if(!emaild || !password)    
+    throw "please provide data for all input feilds."
+
+    const userCollection = await users();
+
+    let parts = password.split(',', 2);
+    const pass1 = parts[0];
+    const pass2 = parts[1];
+
+    const getDetails = await userCollection.findOne({email :emaild});
+    if(getDetails == null)
+        throw "email does not exists, please enter a valid email id."
+
+    if(pass1 !== pass2){
+        throw "Password and confirm password do not match"
+       }
+    const UserID = getDetails._id;
+    if(typeof UserID != "object"){
+        UserID  = ObjectId.createFromHexString(UserID);
+      }
+
+      
+    var key = "ASECRET-HEALTHCARE-2019"
+    var cipher = CryptoJS.AES.encrypt(pass1, key);
+    cipherPassword = cipher.toString();
+
+      console.log(cipherPassword);
+      const updatedUserInfo = await userCollection.updateOne({_id:UserID },  { $set:{password: cipherPassword}})
+      console.log(updatedUserInfo.modifiedCount);
+      if(updatedUserInfo.modifiedCount === 0){
+          throw `could not update password ${email}`;
+      }
+     return true;
+        },
 
   async updatePassword(userId, password) {
     const userCollection = await users();
