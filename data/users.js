@@ -59,7 +59,7 @@ async checkLogin( email, password){
     var decipher = CryptoJS.AES.decrypt(userOld.password, key);
     decipher = decipher.toString(CryptoJS.enc.Utf8);
     //console.log(decipher);
-    if(password !== decipher) throw 'Incorrect password'
+    if(password !== decipher) throw 'You must enter valid Username or Password'
 
     return userOld;
 },
