@@ -21,7 +21,7 @@
 <body onload="populateHospitalSearch('{{ json hospitalList}}', '{{ json docSearchList}}')">
   {{#ifEquals user null}}
   <div class="header">
-    <a href="/" class="logo"><img src="/public/images/logo" height="62" width="130"></a>
+    <a href="/" class="logo"><img src="/public/images/logo" height="62" width="130" alt="logo"></a>
     <div class="header-right">
       <a href="/">Home</a>
       <a href="/contact">Help</a>
@@ -37,7 +37,7 @@
   {{!-- <div class="specialityClass"> --}}
     <div class="btn-group">
       <button onclick="$('#layers').toggle();" type="button" class="btn btn-primary dropdown-toggle specialityClass .col-md-3 .col-sm-12 .col-xs-12"
-        data-toggle="dropdown" style="font-size: medium; font-weight: 700; height:40px;">
+        data-toggle="dropdown" style="font-size: medium; font-weight: 700; height:40px; background-color:#007cc0">
         {{#ifEquals specialityValue null}}
         Select Speciality
         {{else}}
@@ -70,7 +70,7 @@
     </div>
     <input id="hospitalID" type="text" name="id">
     <button type=" submit" class="btn btn-success"
-      style="color:white;  font-size: medium; font-weight: 700; height:40px;" id="search" value="Search">Search</button>
+      style="color:white;  font-size: medium; font-weight: 700; height:40px; background-color:#008a00" id="search" value="Search">Search</button>
   </form>
   {{!-- </div> --}}
 
@@ -124,14 +124,14 @@
           <div class="card doctorlist .col-md-9 .col-sm-12 .col-xs-12">
             <div class="listMain">
               <div class="row">
-              <div class="doctor .col-md-4 .col-sm-12 .col-xs-12"><img src="{{this.imageURL}}" alt="No Image"></div>
+              <div class="doctor .col-md-4 .col-sm-12 .col-xs-12"><img src="{{this.imageURL}}" alt ="doctor image"></div>
               <div class="doctorDetails .col-md-5 .col-sm-12 .col-xs-12">
                 <div class="h2class">{{this.name}}</div>
                 <div class="h3class">{{this.experience}}</div>
                 <div class="h3class">{{this.education}}</div>
                 <div class="h3class">{{this.specialization}}</div>
                 <div class="h3class">Medical Registration Verified: {{this.medical_registration_verified}}</div>
-                <button type="button" class="btn btn-link btnColor" data-toggle="modal" data-target="#exampleModal"
+                <button type="button" class="btn btn-link btnColor btnlinkcolor" style="color: #007cc0;" data-toggle="modal" data-target="#exampleModal"
                   data-description="Doctor Description: {{this.description}}" data-gender="Gender: {{this.gender}}"
                   data-education="Education: {{this.education}}" data-name="Name: {{this.name}}"
                   data-specialization="Specialization: {{this.specialization}}"
