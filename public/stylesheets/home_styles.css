@@ -107,7 +107,7 @@
   } */
 
 .covid-alert {
-  background-color: yellow;
+  background-color: #ffff00;
   color: black;
   font-style: normal;
   font-size: medium;
@@ -293,7 +293,7 @@
 
 .card-button {
   color: #fff;
-  background-color: #337ab7;
+  background-color:#2676b5;
   border-color: #2e6da4;
 
   display: inline-block;
@@ -458,7 +458,7 @@ textarea.form-control {
   *=============================================*/
 
 .footer-top {
-  background: #5fc8ee;
+  background:#0081a0;
 }
 
 .fwidget {
@@ -479,7 +479,7 @@ textarea.form-control {
 
 .fwidget-company p {
   font-size: 16px;
-  color: #878787;
+  color: #050505;
 }
 
 .fwidget-title {
@@ -512,7 +512,7 @@ textarea.form-control {
 }
 
 .copyright {
-  color: #8e8d8e;
+  color:#908f90;
   font-size: 14px;
 }
 

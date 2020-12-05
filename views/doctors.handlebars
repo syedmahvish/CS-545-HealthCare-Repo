@@ -21,7 +21,7 @@
 <body onload="populateHospitalSearch('{{ json hospitalList}}', '{{ json docSearchList}}')">
   {{#ifEquals user null}}
   <div class="header">
-    <a href="/" class="logo"><img src="/public/images/logo" height="62" width="130"></a>
+    <a href="/" class="logo"><img src="/public/images/logo" height="62" width="130" alt="Logo"></a>
     <div class="header-right">
       <a href="/">Home</a>
       <a href="/contact">Help</a>
@@ -63,7 +63,7 @@
 
       {{!-- <div class='searchClass'> --}}
   <form autocomplete="off" action="/search" id="searchContainer">
-    <div class="autocomplete searchClass .col-md-3 .col-sm-12 .col-xs-12" style="color:#14bef0; width:300px;">
+    <div class="autocomplete searchClass .col-md-3 .col-sm-12 .col-xs-12" style="color:#0080a4; width:300px;">
       <label for="hospitalSearch"></label>
       <input id="hospitalSearch" type="text" name="hospital" class="form-control"
         placeholder="Search By Hospital/Doctor" value="{{searchValue}}">
