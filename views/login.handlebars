@@ -15,22 +15,36 @@
 </head>
 
 <body background="/public/images/background_image.jpg">
-    {{#if hasErrors}}
-    <p id="error_alert" class="error">{{error}}</p>
-    <div id="closebtnId1" class="closebtn"> &times;</div>
-    {{/if}}
-    <div class="box">
+
+    <div class="box" style="width : 50%; top: 60%;">
         <form id="loginForm" action="/users/login" method="POST">
+
+            {{#if hasErrors}}
+            <div id="userExsistError" style="display: block;">
+                <div class="container text-center">
+                    <div class="alert alert-danger text-left" role="alert">
+                        <div class="alert-heading errorHeading">Error</div>
+                        <div> {{error}}</div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+            <div id="errorContainerReg" style="display: none;">
+                <div class="container text-center">
+                    <div class="alert alert-danger text-left" role="alert">
+                        <div class="alert-heading errorHeading">Error</div>
+                        <div id="loginError">You must enter valid Username or Password</div>
+                    </div>
+                </div>
+            </div>
+
             <a href="/">Back to Home</a>
             <br /><br />
             <h1>Login In</h1>
-            {{!-- <label for="email"></label>      --}}
             <input id="email" type="email" name="email" placeholder="Email" required>
-            {{!-- <label for="password"></label>   --}}
             <input id="password" type="password" name="password" placeholder="Password" required>
-            {{!-- <label for="submit"></label>   --}}
             <input type="submit" value="Log In" placeholder="Log In">
-            <a href="/users/changePassword">Forgot Password?</a>
             <div id="newUser"><a href="/users/signup">New User?</a></div>
         </form>
 

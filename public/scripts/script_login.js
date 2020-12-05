@@ -1,70 +1,51 @@
-$(document).ready(function() {
-    $('#loginForm').submit((event) => {
+let errorContainer = document.getElementById("errorContainerReg");
+let regForm = document.getElementById("loginForm");
+let email = document.getElementById("email")
+let password = document.getElementById("password")
+
+let loginCredential = document.getElementById("loginError");
+let isUserExsistError = document.getElementById("userExsistError")
+
+let error = false;
+
+if (errorContainer) {
+  errorContainer.style.display = "none";
+  loginCredential.style.display = "none";
+}
+
+
+
+if(regForm){
+    regForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-         if(!$('#email').val()){
-            $('#error').show();
-            $('#closebtnId').show();
-            $('#error').html('You must enter email');
-            $('#email').focus();
-        }
-        else if( !emailReg.test( $('#email').val() ) ) {
-            $('#error').show();
-            $('#closebtnId').show();
-            $('#error').html('Please enter valid email id');
-            $('#email').focus();
-            } 
-        else if(!$('#password').val()){
-            $('#error').show();
-            $('#closebtnId').show();
-            $('#error').html('You must enter password');
-            $('#password').focus();
-        }
-        else {
-            $('#loginForm').unbind('submit').submit()
-            $('#loginForm').trigger('reset');
-            $('#error').hide();
-            $('#closebtnId').hide();
+        error = false;
        
-        }
-    });
-    $('#closebtnId').click(function() {
-        $('#closebtnId').hide();
-      });
-      $('#closebtnId1').click(function() {
-        $('#closebtnId1').hide();
-      });
-    });
+        errorContainer.style.display = "none";
+        loginCredential.style.display = "none"; 
 
-    $(document).mouseup(function(e) 
-{
-    var container = $("#error");
-
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
-    {
-        container.hide();
+    if (email.value.trim().length < 1 || !validateEmail(email.value)) {
+      error = true;
+      loginCredential.style.display = "block";
     }
-    var container = $("#error_alert");
-
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
-    {
-        container.hide();
+    if (password.value.trim().length < 1) {
+      error = true;
+      loginCredential.style.display = "block";
     }
-    var container = $("#closebtnId");
+   
+      if (error) {
+        errorContainer.style.display = "block";
+        isUserExsistError.style.display = "none";
+      }
+  
+      if (!error) {
+        regForm.submit();
+      }
 
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
-    {
-        container.hide();
-    }
-    var container = $("#closebtnId1");
-
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
-    {
-        container.hide();
-    }
 });
-    
+}
+
+function validateEmail(elementValue) {
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(elementValue);
+  }
+
