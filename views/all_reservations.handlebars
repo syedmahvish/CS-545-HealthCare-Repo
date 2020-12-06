@@ -7,7 +7,7 @@
       {{#if reservationList}}
       {{#each reservationList}}
       <div class="card">
-        <div class="card-header text-white" style="background-color: rgb(36, 162, 208);"><strong>Booking ID:
+        <div class="card-header text-white" style="background-color: #0080a7;"><strong>Booking ID:
             #{{this._id}}</strong></div>
         <div class="card-body">
           <table style="color:darkslategray">
@@ -26,14 +26,14 @@
             </tr>
             <tr>
               <td>Status:</td>
-              <td style="color:rgb(30, 196, 30); font:bold;"> {{this.status}}</td>
+              <td style="color:#008a00; font:bold;"> {{this.status}}</td>
             </tr>
             <tr>
               <td>
 
               </td>
               <td>
-                <a style="font-size: large;" href="/reservation/get/{{this._id}}"><u>
+                <a style="font-size: large; color : #0072ee" href="/reservation/get/{{this._id}}"><u>
                     <bold>View</bold>
                   </u></a>
               </td>
