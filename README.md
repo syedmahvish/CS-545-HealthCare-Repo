@@ -22,11 +22,11 @@ Steps to run application:
 2- Open Visual studio Code:
     1- Open project using File-> Open -> Select project
     2- Install dependency : Select Terminal -> new Terminal
-        1- Install dependency using below command:
+			1- Install dependency using below command:
                     To start execute "npm install" to install dependenies
-        2- Setup Backend (Collections= users, doctors, hospitals, appointments)
+        	2- Setup Backend (Collections= users, doctors, hospitals, appointments)
                     To seed file "npm run seed"
-        3- Finally run project :
+        	3- Finally run project :
                     To run execute "npm start"
 3- Open browser and got to address : "http://localhost:3000/"
                     
