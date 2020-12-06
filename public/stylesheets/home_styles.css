@@ -130,7 +130,7 @@
   display: inline-block;
 }
 
-.hlp-center-content > h4 {
+.hlp-center-content > h1 {
   font-size: 40px;
   font-weight: 700;
   color: #283779;
@@ -184,7 +184,7 @@
   overflow: hidden;
 }
 
-.help-feature-lists li .content h4 {
+.help-feature-lists li .content h2 {
   font-size: 22px;
   font-weight: 700;
   color: #283779;
@@ -460,6 +460,9 @@ textarea.form-control {
 .footer-top {
   background: #5fc8ee;
 }
+#about{
+  color:black;
+}
 
 .fwidget {
   margin-bottom: 40px;
@@ -484,7 +487,7 @@ textarea.form-control {
 
 .fwidget-title {
   font-size: 20px;
-  color: #ffffff;
+  color: black;
   font-weight: 600;
   letter-spacing: 0;
   margin-bottom: 23px;
@@ -497,7 +500,7 @@ textarea.form-control {
 .fwidget .links li a {
   display: block;
   font-size: 14px;
-  color: #ffffff;
+  color: black;
   letter-spacing: 0;
   font-weight: 500;
   margin-bottom: 18px;
@@ -512,7 +515,7 @@ textarea.form-control {
 }
 
 .copyright {
-  color: #8e8d8e;
+  color: white;
   font-size: 14px;
 }
 
