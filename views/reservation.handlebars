@@ -19,7 +19,7 @@
   <div class="container">
     <div class="card bg-light mx-auto" id="viewForm" style="">
 
-      <div class="card-header text-white bg-success mb-3"><strong>Status: {{appointment.status}}</strong></div>
+      <div class="card-header text-white mb-3" style="background-color: #008a00;"><strong>Status: {{appointment.status}}</strong></div>
 
 
       <div class="card-body cardClass">
@@ -43,11 +43,11 @@
 
         </div>
         <div class="btn-group" role="group" aria-label="manage">
-          <button class="btn btn-primary"
+          <button style="background-color:  #0072ee;" class="btn btn-primary"
             onclick="hideElement('#viewForm');hideElement('#h2');showElement('#editForm'); return false;">Edit</button>
-          <button onclick="cancelReserv('{{appointment._id}}'); return false;" class="btn btn-primary">Cancel</button>
+          <button style="background-color:  #0072ee;" onclick="cancelReserv('{{appointment._id}}'); return false;" class="btn btn-primary">Cancel</button>
 
-          <button class="btn btn-primary" id="addNotesSubmit" onclick="updateNotes('{{appointment._id}}')">Update
+          <button style="background-color:  #0072ee;" class="btn btn-primary" id="addNotesSubmit" onclick="updateNotes('{{appointment._id}}')">Update
             Notes</button>
 
         </div>
